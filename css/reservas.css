@@ -1,0 +1,71 @@
+/* Responsable: Iván García Miranda [cite: 23] */
+
+/* "Llamada" a los estilos globales */
+@import url('principal.css');
+
+/* Estilos específicos para la lista de platos */
+#lista-seleccionados {
+    background: rgb(255, 253, 247);
+    padding: 15px;
+    border-left: 5px solid rgb(192,57,43);
+    margin-bottom: 30px;
+}
+
+#contenedor-items ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+/* Estilos para el formulario de reserva [cite: 77] */
+#form-comanda {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo input {
+    padding: 10px;
+    border: 1px solid rgb(222, 150, 98);
+    border-radius: 4px;
+}
+
+/* Estilo del botón de envío */
+#btn-enviar {
+    background-color: rgb(87, 24, 24);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition:0.3s ease; /* Interactividad CSS  */
+}
+
+#btn-enviar:hover {
+    background-color: rgb(255, 252, 242);
+    animation-delay: 0,2s;
+    color: rgb(87, 24, 24);
+    border: 2px solid rgb(87, 24, 24)
+    ;
+}
+
+/* Estilo para la confirmación visible (JS) */
+.confirmacion-exito {
+    animation: fadeIn 0.5s;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
