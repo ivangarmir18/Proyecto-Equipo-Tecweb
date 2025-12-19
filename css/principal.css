@@ -1,0 +1,56 @@
+/* Responsable: Gloria Gordaliza */
+
+/* Configuración básica y Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: rgb(20,20,20);
+}
+
+/* Contenedor flexible para el diseño  */
+header {
+    background: #410805;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav ul {
+    display: flex; /* Uso de flexbox  */
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: rgb(40, 177, 177); /* Color corporativo para interactividad  */
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: rgb(20,20,20);
+    margin-bottom: 20px;
+}
