@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas - Casa de Comidas</title>
+    <title>Finalizar Reserva - Casa de Comidas</title>
     <link rel="stylesheet" href="../css/reservas.css">
 </head>
 <body>
@@ -20,43 +20,85 @@
     </header>
 
     <main>
-        <h1>Tu Pedido</h1>
+        <header class="reserva-header">
+            <h1>Gestión de Pedido</h1>
+            <div class="stepper">
+                <div class="paso-indicador activo" id="ind-paso-1">1. Mi Cesta</div>
+                <div class="separador"></div>
+                <div class="paso-indicador" id="ind-paso-2">2. Mis Datos</div>
+            </div>
+        </header>
 
-        <section id="lista-seleccionados">
-            <h2>Platos seleccionados</h2>
-            <div id="contenedor-items">
-                <p>No has seleccionado ningún plato todavía.</p>
+        <section id="paso-1" class="contenedor-paso">
+            <div class="tabla-scroll">
+                <table id="tabla-reserva">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Plato</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="resumen-final">
+                <div class="total-box">
+                    <span class="total-label">Total estimado:</span>
+                    <span id="precio-total" class="total-monto">0.00€</span>
+                </div>
+                <button type="button" class="btn-primario" id="ir-paso-2">
+                    Siguiente: Introducir Datos ➔
+                </button>
             </div>
         </section>
 
-        <hr>
+        <section id="paso-2" class="contenedor-paso paso-oculto">
+            <div class="tarjeta-formulario">
+                <h2>Detalles de la Recogida</h2>
+                <form id="form-comanda">
+                    <div class="grupo-input">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Iván García" required>
+                    </div>
 
-        <section id="formulario-reserva">
-            <h2>Datos de recogida</h2>
-            <form id="form-comanda">
-                <div class="campo">
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
+                    <div class="grupo-input">
+                        <label for="telefono">Teléfono de Contacto</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" required>
+                    </div>
 
-                <div class="campo">
-                    <label for="telefono">Teléfono de contacto:</label>
-                    <input type="tel" id="telefono" name="telefono" required>
-                </div>
+                    <div class="fila-inputs">
+                        <div class="grupo-input">
+                            <label for="fecha">Fecha de Recogida</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+                        <div class="grupo-input">
+                            <label for="hora">Hora de recogida</label>
+                            <select id="hora" name="hora" required placeholder="Seleccione Hora">
+                                </select>
+                        </div>
+                    </div>
 
-                <div class="campo">
-                    <label for="fecha">Fecha de recogida:</label>
-                    <input type="date" id="fecha" name="fecha" required>
-                </div>
-
-                <div class="campo">
-                    <label for="hora">Hora de recogida:</label>
-                    <input type="time" id="hora" name="hora" required>
-                </div>
-
-                <button type="submit" id="btn-enviar">Confirmar Reserva</button>
-            </form>
+                    <div class="barra-acciones">
+                        <button type="button" class="btn-secundario" id="volver-paso-1">
+                            ⇠ Volver a la cesta
+                        </button>
+                        <button type="submit" class="btn-exito">
+                            Confirmar Reserva ✔
+                        </button>
+                    </div>
+                </form>
+            </div>
         </section>
+
+        <section id="seccion-exito" class="contenedor-paso paso-oculto">
+            </section>
+
     </main>
 
     <script src="../js/reservas.js"></script>
