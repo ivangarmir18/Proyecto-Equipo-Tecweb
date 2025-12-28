@@ -1,15 +1,67 @@
+/* Responsable: Gloria Gordaliza */
+
+/* Configuración básica y Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #eae7dd;
+    color: rgb(20,20,20);
+}
+
+/* Contenedor flexible para el diseño  */
+header {
+    background: #410805;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav ul {
+    display: flex; /* Uso de flexbox  */
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: rgb(40, 177, 177); /* Color corporativo para interactividad  */
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: rgb(20,20,20);
+    margin-bottom: 20px;
+}
+
+/* FIN CONFIGURACIÓN BÁSICA */
+
 /* CARRUSEL */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background: #333;
-  color: #fff;
-  line-height: 1.6;
 }
 
 .slider {
@@ -124,60 +176,104 @@ body {
 .slide:nth-child(6) {
   background: url('../html/img/slider6.jpg') no-repeat center center/cover;
 }
+/* FIN CARRUSEL */
 
-/* Responsable: Gloria Gordaliza */
+/* Div texto carta */
+.info-carta {
+    width: 33.33%;       /* 1/3 del ancho */
+    display: flex;
+    justify-content: flex-start; /* izquierda */
+}
+/* FIN Div texto carta */
 
-/* Configuración básica y Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* menús */
+.elemento-carta1,
+.elemento-carta2,
+.elemento-carta3 {
+  background-color: #ffffff;
+  border-radius: 30px;
+  border: 1px solid #EDE9E4;
+  padding: 45px 30px;
+  width: 320px;
+  font-family: 'Instrument Sans', sans-serif;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: rgb(20,20,20);
+.elemento-carta1:hover,
+.elemento-carta2:hover,
+.elemento-carta3:hover {
+  transform: translateY(-5px);
 }
 
-/* Contenedor flexible para el diseño  */
-header {
-    background: #410805;
-    color: #fff;
-    padding: 1rem 0;
+.carta1-inner,
+.carta2-inner,
+.carta3-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-nav ul {
-    display: flex; /* Uso de flexbox  */
-    justify-content: center;
-    list-style: none;
+.principal-titulo,
+.completo-titulo,
+.postre-titulo {
+  font-size: 26px;
+  color: #141414;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
-nav ul li {
-    margin: 0 15px;
+.principal-lista,
+.completo-lista,
+.postre-lista {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+.principal-lista li,
+.completo-lista li,
+.postre-lista li {
+  font-size: 17px;
+  color: #485463;
+  margin-bottom: 12px;
 }
 
-nav ul li a:hover {
-    color: rgb(40, 177, 177); /* Color corporativo para interactividad  */
+/* precios cartas*/
+
+.contedor-principal-precio,
+.contedor-completo-precio,
+.contedor-postre-precio {
+  margin-top: auto;
 }
 
-main {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.principal-precio,
+.completo-precio,
+.postre-precio {
+  font-size: 16px;
+  color: #3e3e3e;
 }
 
-h1, h2 {
-    color: rgb(20,20,20);
-    margin-bottom: 20px;
+.principal-precio .amount,
+.completo-precio .amount,
+.postre-precio .amount {
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 500;
+  margin-left: 5px;
 }
+
+
+.contenedor-carta {
+    display: flex;    
+    gap: 30px;         
+    justify-content: center; /* Alinea a la izquierda */
+}
+
+@media (max-width: 768px) {
+  .contenedor-cartas {
+      flex-direction: column;
+  }
+}
+/* FIN menús */
