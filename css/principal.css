@@ -198,6 +198,8 @@ h1, h2 {
   font-family: 'Instrument Sans', sans-serif;
   box-shadow: 0 10px 40px rgba(0,0,0,0.03);
   transition: transform 0.3s ease;
+  position: relative;
+  padding-bottom: 70px;
 }
 
 .elemento-carta1:hover,
@@ -247,6 +249,11 @@ h1, h2 {
 .contedor-completo-precio,
 .contedor-postre-precio {
   margin-top: auto;
+  text-align: center;
+  position: absolute;
+  bottom: 30px; 
+  left: 50%;
+  transform: translateX(-50%); /* porque no me deja con otra opción*/
 }
 
 .principal-precio,
@@ -278,3 +285,29 @@ h1, h2 {
   }
 }
 /* FIN menús */
+
+/* botón carta */
+.boton-carta {
+  display: flex;
+  justify-content: center; /* centra el botón */
+  margin: 40px 0;
+}
+
+.btn-ver-carta {
+  display: inline-block;
+  padding: 14px 40px;
+  background-color: #410805; 
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-ver-carta:hover {
+  background-color: #5a0b07;
+  transform: translateY(-2px);
+}
+
+/* FIN botón carta */
