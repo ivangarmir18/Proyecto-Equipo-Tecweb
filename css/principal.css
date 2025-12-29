@@ -212,6 +212,7 @@ h1, h2 {
   display: flex;
   flex-direction: column;
   height: 100%;
+  text-align: center;
 }
 
 .principal-titulo,
@@ -268,7 +269,7 @@ h1, h2 {
 .contenedor-carta {
     display: flex;    
     gap: 30px;         
-    justify-content: center; /* Alinea a la izquierda */
+    justify-content: center; 
 }
 
 @media (max-width: 768px) {
