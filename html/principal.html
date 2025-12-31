@@ -8,80 +8,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!--iconos flechas carrusel--> 
 </head>
 <body>
-    <header>
-        <div>
-            <a href="#"><img src="img/logo.png" alt="" class="logo" height="20px"></a>
-            <input type="checkbox" id="menu">
-            <label for="menu">
-                <img src="img/barmenu.png" alt="" class="menu-icono" height="20px">
-            </label>
+  <header>
+    <div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="principal.html">Inicio</a></li>
+          <li><a href="carta.html">Carta</a></li>
+          <li><a href="reservas.html">Reservas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-            <nav class="navbar">
-                <ul>
-                    <li><a href="principal.html">Inicio</a></li>
-                    <li><a href="carta.html">Carta</a></li>
-                    <li><a href="reservas.html">Reservas</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <div class="titulo-contenedor">
+      <div class="titulo-txt">
+          <h1>Casa de comidas Bodeguetes</h1>
+          <p>Casa de Comidas Bodeguetes es un lugar sencillo y cercano donde se cocina como siempre, con calma y cariño. Apostamos por una comida casera, de raíces tradicionales, inspirada en las recetas de toda la vida y en el sabor auténtico de la cocina <i>mediterránea</i>. Un espacio para comer bien, sin prisas, como en casa.
+          </p>
+      </div>
+  </div>
 
-    <div class="titulo-contenedor">
-        <div class="titulo-txt">
-            <h1>Casa de comidas</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Vero adipisci eius ut fuga, maxime voluptatem facilis cupiditate 
-                possimus repudiandae inventore?
-            </p>
+  <br>
 
-        </div>
-    </div>
-
-    <!-- CARRUSEL - sacado de github-->
-    <div class="slider">
-    <div class="slide current">
-      <div class="content">
-        <h1>Slide One</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quidem, architecto eos adipisci maxime aperiam!</p>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="content">
-        <h1>Slide Two</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quidem, architecto eos adipisci maxime aperiam!</p>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="content">
-        <h1>Slide Three</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quidem, architecto eos adipisci maxime aperiam!</p>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="content">
-        <h1>Slide Four</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quidem, architecto eos adipisci maxime aperiam!</p>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="content">
-        <h1>Slide Five</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quidem, architecto eos adipisci maxime aperiam!</p>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="content">
-        <h1>Slide Six</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quidem, architecto eos adipisci maxime aperiam!</p>
-      </div>
+  <!-- CARRUSEL - sacado de github-->
+  <div class="slider">
+  <div class="slide current">
+    <div class="content">
+      <h1>Cocina de siempre</h1>
+      <p>Recetas tradicionales, elaboradas como se ha hecho toda la vida, respetando los sabores y el producto.</p>
     </div>
   </div>
-  <div class="buttons">
-    <button id="prev"><i class="fas fa-arrow-left"></i></button>
-    <button id="next"><i class="fas fa-arrow-right"></i></button>
+  <div class="slide">
+    <div class="content">
+      <h1>Sabor mediterráneo</h1>
+      <p>Nuestra cocina se inspira en el Mediterráneo: ingredientes sencillos, frescos y llenos de carácter.</p>
+    </div>
   </div>
+  <div class="slide">
+    <div class="content">
+      <h1>Recetas heredadas</h1>
+      <p>Platos que recuerdan a las comidas de las abuelas, hechos con paciencia y cariño.</p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="content">
+      <h1>Ambiente cercano</h1>
+      <p>Un lugar acogedor, sin pretensiones, donde sentirse cómodo y comer tranquilo.</p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="content">
+      <h1>Sin prisas</h1>
+      <p>Aquí se viene a disfrutar de la comida y del momento, como en una auténtica casa de comidas.</p>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="content">
+      <h1>Buena mesa</h1>
+      <p>Creemos en la buena comida, la conversación y el placer de sentarse a la mesa.</p>
+    </div>
+  </div>
+</div>
+<div class="buttons">
+  <button id="prev"><i class="fas fa-arrow-left"></i></button>
+  <button id="next"><i class="fas fa-arrow-right"></i></button>
+</div>
 <!-- FIN CARRUSEL -->
+
+<br>
 
 <!-- info carta -->
   <div class="info-carta">
@@ -175,8 +170,7 @@
 <!-- FIN contacto -->
 
 <!-- footer -->
-<footer class="footer">
-<footer class="footer">
+<footer>
   <div class="footer-contenido">
     <span class="footer-bloque">CASA DE COMIDAS BODEGUETES</span>
 
@@ -186,7 +180,7 @@
 
     <span class="footer-separador">|</span>
 
-    <span class="footer-bloque">L–V 12:30–15:30</span>
+    <span class="footer-bloque">L-V 12:00-16:00</span>
 
     <span class="footer-separador">|</span>
 
@@ -196,8 +190,6 @@
   <div class="footer-copy">
     © 2025 Casa de Comidas Bodeguetes
   </div>
-</footer>
-
 </footer>
 <!-- FIN footer -->
 
