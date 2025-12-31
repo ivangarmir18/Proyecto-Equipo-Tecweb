@@ -3,62 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        h1 {
-            text-align: center;
-        }
-
-        .Plato {
-            display: inline-block;
-            width: 25%;
-            border: 1px solid;
-            border-radius: 8px;
-            
-            text-align: center;
-            margin: 10px;
-        }
-
-        .Plato img {
-            position: relative;
-            width: 100%;
-            height: 280px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .Plato .precio {
-            text-align: right;
-            color:red;
-            font-size: 1.2em;
-            margin: 10px;
-        }
-
-        .menu span {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-            }
-        
-        .cabeza{
-            background-color: darkgoldenrod;
-            color: white;
-            text-align: center;
-            margin-bottom: 30px ;
-            padding: 20px 0;
-            grid-column: 1/-1;
-        }
-
-        
-    </style>
-  
-        
+    <title>Document</title> 
+    <link rel="stylesheet" href="../css/carta.css">  
 </head>
 <body>
-    <div class="cabeza">
-        <h1>Nuestro menú</h1>
-        <h3>&mdash; Carta &mdash;</h3>
-    </div>
+    <header>
+        <div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="principal.html">Inicio</a></li>
+                    <li><a href="carta.html">Carta</a></li>
+                    <li><a href="reservas.html">Reservas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     
     <div class="menu">
         <span>
@@ -156,12 +117,7 @@
 
 
     </div>
-
-    <script>
-        function destacar(){
-
-        }
-    </script>
     
 </body>
+<script src="../js/carta.js"></script>
 </html>

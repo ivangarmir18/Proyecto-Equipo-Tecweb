@@ -3,14 +3,28 @@ document.addEventListener('DOMContentLoaded', function() {
     var inputFecha = document.getElementById('fecha');
     var selectHora = document.getElementById('hora');
     
-    // 1. LIMITAR FECHA MÍNIMA
+    // 1. LIMITAR FECHA
     var hoy = new Date().toISOString().split('T')[0];
     inputFecha.min = hoy;
 
-    // 2. GENERAR LAS HORAS EXCLUSIVAS (11:00 a 16:00)
+    inputFecha.addEventListener('change', function () {
+        var seleccion = new Date(this.value);
+        var dia = seleccion.getDay();
+
+        if (dia === 0 || dia === 6) {
+            alert("Solo se puede reservar de lunes a viernes.");
+            inputFecha.value = "";
+        }
+
+        else if (this.value < hoy) {
+            alert("No puedes seleccionar un día pasado.");
+            inputFecha.value = "";
+        }
+    });
+
     function cargarHoras() {
         var opciones = "";
-        for (var h = 11; h <= 16; h++) {
+        for (var h = 12; h <= 16; h++) {
             opciones += "<option value='" + h + ":00'>" + h + ":00</option>";
             if (h < 16) {
                 opciones += "<option value='" + h + ":30'>" + h + ":30</option>";

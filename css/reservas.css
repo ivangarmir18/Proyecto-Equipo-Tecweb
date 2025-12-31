@@ -1,9 +1,21 @@
 /* Responsable: Iván García Miranda */
 @import url('principal.css');
 
+.contenedor-reservas {
+  width: 100%;
+  max-width: 95%;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px 15px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
 .reserva-header h1 {
     color: white; 
     font-size: 40px;
+    background-color: #d8c4b6;
     font-weight: 800;
     text-align: left;
     margin-bottom: 20px;
@@ -81,7 +93,7 @@ main {
 }
 
 .nombre-plato {
-    font-size: 1.1rem;
+    font-size: 18px; /* 1.1rem */
     font-weight: bold;
     display: block;
 }
@@ -89,7 +101,7 @@ main {
 .precio-plato {
     color: rgb(192, 57, 43);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 19px; /* 1.2rem */
 }
 
 .selector-cantidad {
@@ -107,7 +119,7 @@ main {
     border: none;
     width: 35px;
     height: 35px;
-    font-size: 1.2rem;
+    font-size: 19px; /* 1.2rem */
     cursor: pointer;
 }
 
@@ -123,7 +135,7 @@ main {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 19px; /* 1.2rem */
 }
 
 .btn-borrar:hover { color: rgb(192, 57, 43); }
@@ -141,7 +153,7 @@ main {
 .total-label { display: block; font-weight: bold; color: #444; }
 
 .total-monto {
-    font-size: 2.8rem;
+    font-size: 45px; /* 2.8rem */
     color: #000;
     font-weight: 900;
 }
@@ -170,7 +182,7 @@ main {
     padding: 12px;
     border: 2px solid #eee;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 16px; /* 1rem */
     transition: 0.3s;
 }
 
@@ -197,7 +209,7 @@ main {
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 18px;
     transition: 0.3s;
 }
 
@@ -211,6 +223,8 @@ main {
     border: 1px solid #ccc;
     padding: 10px 20px;
     border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -223,12 +237,13 @@ main {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
+
 .grupo-input select {
     width: 100%;
     padding: 12px;
     border: 2px solid #eee;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 16px; /* 1rem */
     background-color: white;
     cursor: pointer;
     appearance: none;

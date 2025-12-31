@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="../css/reservas.css">
 </head>
 <body>
-
     <header>
-        <nav>
+        <nav class="navbar">
             <ul>
                 <li><a href="principal.html">Inicio</a></li>
                 <li><a href="carta.html">Carta</a></li>
@@ -20,15 +19,13 @@
     </header>
 
     <main>
-        <header class="reserva-header">
-            <h1>Gestión de Pedido</h1>
-            <div class="stepper">
-                <div class="paso-indicador activo" id="ind-paso-1">1. Mi Cesta</div>
-                <div class="separador"></div>
-                <div class="paso-indicador" id="ind-paso-2">2. Mis Datos</div>
-            </div>
-        </header>
-
+        <div class="stepper">
+            <div class="paso-indicador activo" id="ind-paso-1">1. Mi Cesta</div>
+            <div class="separador"></div>
+            <div class="paso-indicador" id="ind-paso-2">2. Mis Datos</div>
+        </div>
+    
+    
         <section id="paso-1" class="contenedor-paso">
             <div class="tabla-scroll">
                 <table id="tabla-reserva">
@@ -49,7 +46,7 @@
 
             <div class="resumen-final">
                 <div class="total-box">
-                    <span class="total-label">Total estimado:</span>
+                    <span class="total-label">Total:</span>
                     <span id="precio-total" class="total-monto">0.00€</span>
                 </div>
                 <button type="button" class="btn-primario" id="ir-paso-2">
@@ -103,4 +100,26 @@
 
     <script src="../js/reservas.js"></script>
 </body>
+
+<footer>
+  <div class="footer-contenido">
+    <span class="footer-bloque">CASA DE COMIDAS BODEGUETES</span>
+
+    <span class="footer-separador">|</span>
+
+    <span class="footer-bloque">Calle Bodeguetes, 97 · Riba-roja de Túria</span>
+
+    <span class="footer-separador">|</span>
+
+    <span class="footer-bloque">L-V 12:00-16:00</span>
+
+    <span class="footer-separador">|</span>
+
+    <span class="footer-bloque">Tel. 605 475 6960</span>
+  </div>
+
+  <div class="footer-copy">
+    © 2025 Casa de Comidas Bodeguetes
+  </div>
+</footer>
 </html>
