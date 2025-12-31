@@ -1,5 +1,9 @@
 /* Responsable: Gloria Gordaliza */
 
+/* importar letras */
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
 /* Configuración básica y Reset */
 * {
     margin: 0;
@@ -8,7 +12,10 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
     line-height: 1.6;
     background-color: #f3ede8;
     color: rgb(20,20,20);
@@ -57,6 +64,11 @@ h1, h2 {
 
 /* FIN CONFIGURACIÓN BÁSICA */
 
+.titulo-txt h1{
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+
 /* CARRUSEL */
 * {
   box-sizing: border-box;
@@ -86,6 +98,7 @@ h1, h2 {
 }
 
 .slide .content {
+  font-family: "Fraunces", serif;
   position: absolute;
   bottom: 40px; 
   left: -600px;
@@ -178,7 +191,6 @@ h1, h2 {
   border: 1px solid #EDE9E4;
   padding: 45px 30px;
   width: 320px;
-  font-family: 'Instrument Sans', sans-serif;
   box-shadow: 0 10px 40px rgba(0,0,0,0.03);
   transition: transform 0.3s ease;
   position: relative;
@@ -303,7 +315,6 @@ h1, h2 {
   background-color: #d8c4b6; 
   padding: 40px;
   text-align: center;
-  font-family: 'Instrument Sans', sans-serif;
   color: #2b2b2b;
   font-size: 30px; 
 }
@@ -350,7 +361,7 @@ h1, h2 {
 /* FIN contacto */
 
 /* footer */
-.footer {
+footer {
   width: 100%;
   background-color: #410805;
   color: #ece4dd;
