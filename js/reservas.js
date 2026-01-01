@@ -1,28 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+    var tablaCuerpo = document.getElementById('cuerpo-tabla');
+    var totalCesta = document.getElementById('precio-total');
+    var resumenCant = document.getElementById('resumen-cantidad');
+    var resumenTotal = document.getElementById('resumen-total');
     var inputFecha = document.getElementById('fecha');
-    var selectHora = document.getElementById('hora');
-    
-    // 1. LIMITAR FECHA
+
+    // 1. Configuración de fecha
     var hoy = new Date().toISOString().split('T')[0];
-    inputFecha.min = hoy;
-
-    inputFecha.addEventListener('change', function () {
-        var seleccion = new Date(this.value);
-        var dia = seleccion.getDay();
-
-        if (dia === 0 || dia === 6) {
-            alert("Solo se puede reservar de lunes a viernes.");
-            inputFecha.value = "";
-        }
-
-        else if (this.value < hoy) {
-            alert("No puedes seleccionar un día pasado.");
-            inputFecha.value = "";
-        }
-    });
+    if (inputFecha) inputFecha.min = hoy;
 
     function cargarHoras() {
+        var selectHora = document.getElementById('hora');
+        if (!selectHora) return;
         var opciones = "";
         for (var h = 12; h <= 16; h++) {
             opciones += "<option value='" + h + ":00'>" + h + ":00</option>";
@@ -33,86 +22,104 @@ document.addEventListener('DOMContentLoaded', function() {
         selectHora.innerHTML = opciones;
     }
 
-    cargarHoras();
-
-    document.getElementById('ir-paso-2').onclick = function() {
-        var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
-        if (pedido.length === 0) return alert("Cesta vacía");
-
-        document.getElementById('paso-1').className = 'contenedor-paso paso-oculto';
-        document.getElementById('paso-2').className = 'contenedor-paso';
-        
-        document.getElementById('ind-paso-1').className = 'paso-indicador completado';
-        document.getElementById('ind-paso-2').className = 'paso-indicador activo';
-        window.scrollTo(0,0);
-    };
-
-    document.getElementById('volver-paso-1').onclick = function() {
-        document.getElementById('paso-2').className = 'contenedor-paso paso-oculto';
-        document.getElementById('paso-1').className = 'contenedor-paso';
-
-        document.getElementById('ind-paso-1').className = 'paso-indicador activo';
-        document.getElementById('ind-paso-2').className = 'paso-indicador';
-    };
-
-    function dibujarTabla() {
-        var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
-        var cuerpo = document.getElementById('cuerpo-tabla');
-        var totalTxt = document.getElementById('precio-total');
-        var suma = 0;
-        var html = "";
-
-        for (var i = 0; i < pedido.length; i++) {
-            var sub = pedido[i].precio * pedido[i].cantidad;
-            suma += sub;
-
-            html += "<tr>" +
-                "<td><img src='" + pedido[i].imagen + "' class='img-mini'></td>" +
-                "<td><span class='nombre-plato'>" + pedido[i].nombre + "</span><span class='precio-plato'>" + pedido[i].precio + "€</span></td>" +
-                "<td>" +
-                    "<div class='selector-cantidad'>" +
-                        "<button class='btn-qty' onclick='cambiar(" + i + ", -1)'>-</button> " +
-                        "<span>" + pedido[i].cantidad + "</span> " +
-                        "<button class='btn-qty' onclick='cambiar(" + i + ", 1)'>+</button>" +
-                    "</div>" +
-                "</td>" +
-                "<td><strong>" + sub.toFixed(2) + "€</strong></td>" +
-                "<td><button class='btn-borrar' onclick='borrar(" + i + ")'>🗑</button></td>" +
-            "</tr>";
-        }
-        cuerpo.innerHTML = html || "<tr><td colspan='5' style='text-align:center; padding:30px;'>Cesta vacía</td></tr>";
-        totalTxt.innerHTML = suma.toFixed(2) + "€";
+    function obtenerPedido() {
+        return JSON.parse(localStorage.getItem('pedido')) || [];
     }
 
-    window.cambiar = function(i, v) {
-        var p = JSON.parse(localStorage.getItem('pedido'));
-        p[i].cantidad += v;
-        if (p[i].cantidad < 1) p[i].cantidad = 1;
-        localStorage.setItem('pedido', JSON.stringify(p));
-        dibujarTabla();
+    function guardarPedido(pedido) {
+        localStorage.setItem('pedido', JSON.stringify(pedido));
+    }
+
+    function dibujarCesta() {
+        var pedido = obtenerPedido();
+        var suma = 0;
+        var cantTotal = 0;
+        var htmlContenido = "";
+
+        if (pedido.length === 0) {
+            tablaCuerpo.innerHTML = "<tr><td colspan='5' style='text-align:center; padding:30px;'>Cesta vacía</td></tr>";
+            return;
+        }
+
+        // Bucle for tradicional para mayor claridad
+        for (var i = 0; i < pedido.length; i++) {
+            var plato = pedido[i];
+            var subtotal = plato.precio * plato.cantidad;
+            suma += subtotal;
+            cantTotal += plato.cantidad;
+
+            htmlContenido += "<tr>" +
+                "<td><img src='" + plato.imagen + "' class='img-mini'></td>" +
+                "<td>" +
+                    "<span class='nombre-plato'>" + plato.nombre + "</span>" +
+                    "<span class='precio-plato'>" + plato.precio + "€</span>" +
+                "</td>" +
+                "<td>" +
+                    "<div class='selector-cantidad'>" +
+                        "<button class='btn-qty' onclick='actualizarCantidad(" + i + ", -1)'>-</button>" +
+                        "<span>" + plato.cantidad + "</span>" +
+                        "<button class='btn-qty' onclick='actualizarCantidad(" + i + ", 1)'>+</button>" +
+                    "</div>" +
+                "</td>" +
+                "<td><strong>" + subtotal.toFixed(2) + "€</strong></td>" +
+                "<td><button class='btn-borrar' onclick='eliminarPlato(" + i + ")'>🗑</button></td>" +
+            "</tr>";
+        }
+
+        tablaCuerpo.innerHTML = htmlContenido;
+        totalCesta.innerText = suma.toFixed(2) + "€";
+        if (resumenCant) resumenCant.innerText = cantTotal;
+        if (resumenTotal) resumenTotal.innerText = suma.toFixed(2) + "€";
+    }
+
+    window.actualizarCantidad = function(index, valor) {
+        var pedido = obtenerPedido();
+        pedido[index].cantidad = Math.max(1, pedido[index].cantidad + valor);
+        guardarPedido(pedido);
+        dibujarCesta();
     };
 
-    window.borrar = function(i) {
-        var p = JSON.parse(localStorage.getItem('pedido'));
-        p.splice(i, 1);
-        localStorage.setItem('pedido', JSON.stringify(p));
-        dibujarTabla();
+    window.eliminarPlato = function(index) {
+        var pedido = obtenerPedido();
+        pedido.splice(index, 1);
+        guardarPedido(pedido);
+        dibujarCesta();
     };
 
-    dibujarTabla();
+    // Navegación
+    var btnPaso2 = document.getElementById('ir-paso-2');
+    if (btnPaso2) {
+        btnPaso2.onclick = function() {
+            if (obtenerPedido().length === 0) return alert("Añade algún plato primero");
+            document.getElementById('paso-1').classList.add('paso-oculto');
+            document.getElementById('paso-2').classList.remove('paso-oculto');
+            document.getElementById('ind-paso-1').className = 'paso-indicador completado';
+            document.getElementById('ind-paso-2').className = 'paso-indicador activo';
+        };
+    }
 
-    document.getElementById('form-comanda').onsubmit = function(e) {
-        e.preventDefault();
-        var nombre = document.getElementById('nombre').value;
-        var fecha = document.getElementById('fecha').value;
-        var hora = selectHora.value;
+    // Envío formulario
+    var formComanda = document.getElementById('form-comanda');
+    if (formComanda) {
+        formComanda.onsubmit = function(e) {
+            e.preventDefault();
+            var datos = new FormData(e.target);
+            var tipoServicio = datos.get('tipo_entrega') === 'recoger' ? "Recogida" : "En restaurante";
 
-        document.getElementById('paso-2').className = 'paso-oculto';
-        var exito = document.getElementById('seccion-exito');
-        exito.className = 'mensaje-exito';
-        exito.innerHTML = "<h2>¡Reserva Confirmada, " + nombre + "!</h2>" +
-                          "<p>Te esperamos el <strong>" + fecha + "</strong> a las <strong>" + hora + "</strong>.</p>" +
-                          "<button class='btn-primario' onclick='location.reload()'>Volver</button>";
-        localStorage.removeItem('pedido');
-    };
+            document.getElementById('paso-2').classList.add('paso-oculto');
+            var exito = document.getElementById('seccion-exito');
+            exito.classList.remove('paso-oculto');
+            exito.className = 'mensaje-exito';
+
+            exito.innerHTML = "<h2>¡Reserva Confirmada!</h2>" +
+                "<p>Hola <strong>" + datos.get('nombre') + "</strong>, tu pedido para <strong>" + tipoServicio + "</strong> ha sido registrado.</p>" +
+                "<p>Te esperamos el <strong>" + datos.get('fecha') + "</strong> a las <strong>" + datos.get('hora') + "</strong>.</p>" +
+                "<button class='btn-primario' onclick='location.reload()'>Volver</button>";
+            
+            localStorage.removeItem('pedido');
+        };
+    }
+
+    cargarHoras();
+    dibujarCesta();
 });

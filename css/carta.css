@@ -1,46 +1,337 @@
 @import url('principal.css');
-h1 {
+/* Importamos Montserrat para asegurar la legibilidad en textos pequeños */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+/* 1. CONFIGURACIÓN GLOBAL Y LEGIBILIDAD */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif; /* Montserrat para toda la base profesional */
+    background-color: #f3ede8;
+    color: #141414;
+}
+
+/* Fraunces solo para títulos decorativos grandes */
+.header-pagina h1, .subtitulo-seccion, .titulo-fraunces {
+    font-family: "Fraunces", serif;
+}
+
+/* 2. BANNER GRANATE Y SOLAPE (Copia exacta de Reservas) */
+.header-pagina {
+    background-color: #410805;
+    color: #f3ede8;
     text-align: center;
+    padding: 60px 20px 100px 20px; /* Espacio para que el main solape */
+}
+
+.header-pagina h1 {
+    color: whitesmoke;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.header-pagina p {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Bloque contenedor que "muerde" el banner (Igual que en Reservas) */
+main {
+    width: 900px; 
+    margin: -60px auto 60px auto; /* Solape de -60px */
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* 3. SELECTORES TIPO STEPPER (Igual a Reservas) */
+.selector-carta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    padding: 10px 25px;
+    background: #e0e0e0; /* Gris de tus pasos en Reservas */
+    color: #777;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.activo {
+    background-color: #410805;
+    color: white;
+}
+
+/* 4. GRID DE PLATOS (Totalmente Centrado) */
+.subtitulo-seccion {
+    color: #410805;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin: 40px 0 25px 0;
+    text-align: center; /* Centrado del título de sección */
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center; /* Centra las columnas */
+    justify-items: center;   /* Centra las tarjetas */
 }
 
 .Plato {
-    display: inline-block;
-    width: 25%;
-    border: 1px solid;
-    border-radius: 8px;
-    
-    text-align: center;
-    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    width: 100%;
+    max-width: 320px;
 }
 
 .Plato img {
-    position: relative;
     width: 100%;
-    height: 280px;
-    border-radius: 5px;
-    cursor: pointer;
+    height: 200px;
+    object-fit: cover;
 }
 
-.Plato .precio {
-    text-align: right;
-    color:red;
-    font-size: 1.2em;
-    margin: 10px;
+.detalles {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.menu span {
-    display: block;
-    text-align: center;
+.subdetalles {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.subdetalles h5 {
+    font-family: 'Montserrat', sans-serif; /* Montserrat para nombres de platos */
+    font-size: 17px;
+    font-weight: 700;
+    color: #141414;
+    margin: 0;
+}
+
+.precio {
+    color: #c0392b;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.Plato p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
     margin-bottom: 20px;
-    }
-
-.cabeza{
-    background-color: darkgoldenrod;
-    color: white;
-    text-align: center;
-    margin-bottom: 30px ;
-    padding: 20px 0;
-    grid-column: 1/-1;
 }
 
-      
+.Plato button {
+    width: 100%;
+    background-color: #410805;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 5. CONFIGURADOR DE MENÚ (Stepper Interno) */
+.tarjeta-menu-especial {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 3px dashed #d8c4b6;
+    text-align: center;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.menu-configurador {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.paso-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.indicador-paso-mini {
+    width: 35px;
+    height: 35px;
+    background-color: #410805;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.contenido-paso-mini {
+    flex-grow: 1;
+}
+
+.contenido-paso-mini label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    color: #410805;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.contenido-paso-mini select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #eee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.contenido-paso-mini select:focus {
+    border-color: #410805;
+}
+
+.precio-oferta {
+    font-size: 45px;
+    color: #000;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-añadir-especial {
+    width: 100%;
+    background-color: #410805;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-añadir-especial:hover {
+    background-color: #5a0b07;
+}
+
+/* 6. MINICESTA FLOTANTE */
+.cesta-resumida {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 300px;
+    background-color: white;
+    border: 2px solid #410805;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 9999;
+    display: none; /* Se activa mediante JS */
+}
+
+.cesta-resumida h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    color: #410805;
+}
+
+#lista-resumen {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    max-height: 200px;
+    overflow-y: auto; /* Permite scroll si hay muchos platos */
+}
+
+#lista-resumen li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f9f9f9;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#lista-resumen li span {
+    font-weight: 700;
+    color: #c0392b;
+}
+
+.info-cesta-pie {
+    border-top: 2px solid #f3ede8;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.info-cesta-pie p {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.btn-ir-reserva {
+    display: block;
+    background-color: #410805;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-ir-reserva:hover {
+    background-color: #5a0b07;
+    transform: scale(1.03);
+}
+
+/* 7. UTILIDADES */
+.paso-oculto {
+    display: none !important;
+}
+
+footer {
+    margin-top: auto;
+}

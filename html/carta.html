@@ -1,126 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
+    <title>Carta - Casa de Comidas Bodeguetes</title> 
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/carta.css">  
 </head>
 <body>
     <header>
-        <div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="principal.html">Inicio</a></li>
-                    <li><a href="carta.html">Carta</a></li>
-                    <li><a href="reservas.html">Reservas</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="carta.html">Carta</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="cabeza">
-        <h1>Nuestro menú</h1>
-        <h3>&mdash; Carta &mdash;</h3>
+
+    <div class="header-pagina">
+        <h1>Nuestra Carta</h1>
+        <p>&mdash; Elige tu formato para disfrutar &mdash;</p>
     </div>
-    
-    <div class="menu">
-        <span>
-        <div class="Plato">
-            <img src="./img/slider3.png"  onclick="menu">
-            <div class="detalles">
-            <div class="subdetalles">
-                <h5>Hamburguesa</h5>
-                <h5 class="precio">9&euro;</h5>
-            </div>
-            <p>Descripcion del producto, fjbjdbfbfbefhebfhebfhebfhebfhbhebfhbhbe
-                ewhewjfuwnefhebfcds hwbdhwbfbe hebfewjnfhebfhebghebghebgu
-            </p>
-            <button>Añadir</button>
-         </div>
-        
-         </div>
-         
-        <div class="Plato">
-            <img src="./img/slider3.png"  onclick="menu">
-            <div class="detalles">
-            <div class="subdetalles">
-                <h5>Hamburguesa</h5>
-                <h5 class="precio">9&euro;</h5>
-            </div>
-            <p>Descripcion del producto, fjbjdbfbfbefhebfhebfhebfhebfhbhebfhbhbe
-                ewhewjfuwnefhebfcds hwbdhwbfbe hebfewjnfhebfhebghebghebgu
-            </p>
-            <button>Añadir</button>
-         </div>
-        
-         </div>
-         
-         <div class="Plato">
-            <img src="./img/slider3.png"  onclick="menu">
-            <div class="detalles">
-            <div class="subdetalles">
-                <h5>Nombre del plato</h5>
-                <h5 class="precio">9&euro;</h5>
-            </div>
-            <p>Descripcion del producto, fjbjdbfbfbefhebfhebfhebfhebfhbhebfhbhbe
-                ewhewjfuwnefhebfcds hwbdhwbfbe hebfewjnfhebfhebghebghebgu
-            </p>
-            <button>Añadir</button>
-         </div>
-        
-         </div>
-         
-         <div class="Plato">
-            <img src="./img/slider3.png"  onclick="menu">
-            <div class="detalles">
-            <div class="subdetalles">
-                <h5>Hamburguesa</h5>
-                <h5 class="precio">9&euro;</h5>
-            </div>
-            <p>Descripcion del producto, fjbjdbfbfbefhebfhebfhebfhebfhbhebfhbhbe
-                ewhewjfuwnefhebfcds hwbdhwbfbe hebfewjnfhebfhebghebghebgu
-            </p>
-            <button>Añadir</button>
-         </div>
-        
-         </div>
-         
-         <div class="Plato">
-            <img src="./img/slider3.png"  onclick="menu">
-            <div class="detalles">
-            <div class="subdetalles">
-                <h5>Hamburguesa</h5>
-                <h5 class="precio">9&euro;</h5>
-            </div>
-            <p>Descripcion del producto, fjbjdbfbfbefhebfhebfhebfhebfhbhebfhbhbe
-                ewhewjfuwnefhebfcds hwbdhwbfbe hebfewjnfhebfhebghebghebgu
-            </p>
-            <button>Añadir</button>
-         </div>
-        
-         </div>
-         
-         <div class="Plato">
-            <img src="./img/slider3.png"  onclick="menu">
-            <div class="detalles">
-            <div class="subdetalles">
-                <h5>Hamburguesa</h5>
-                <h5 class="precio">9&euro;</h5>
-            </div>
-            <p>Descripcion del producto, fjbjdbfbfbefhebfhebfhebfhebfhbhebfhbhbe
-                ewhewjfuwnefhebfcds hwbdhwbfbe hebfewjnfhebfhebghebghebgu
-            </p>
-            <button>Añadir</button>
-         </div>
-        
-         </div>
-         
 
+    <main>
+        <div class="selector-carta">
+            <button id="btn-platos" class="tab-btn activo" onclick="mostrarSeccion('platos')">Platos Sueltos</button>
+            <button id="btn-menu" class="tab-btn" onclick="mostrarSeccion('menu')">Menú Completo</button>
+        </div>
 
+        <div id="seccion-platos" class="tab-content">
+            <h2 class="subtitulo-seccion">Platos Principales</h2>
+            <div class="menu-grid">
+                <div class="Plato">
+                    <img src="./img/slider3.png">
+                    <div class="detalles">
+                        <div class="subdetalles">
+                            <h5>Hamburguesa Clásica</h5>
+                            <h5 class="precio">9.00€</h5>
+                        </div>
+                        <p>Carne de vacuno seleccionada, lechuga fresca, tomate y nuestra salsa secreta en pan brioche.</p>
+                        <button>Añadir</button>
+                    </div>
+                </div>
 
+                <div class="Plato">
+                    <img src="./img/slider3.png">
+                    <div class="detalles">
+                        <div class="subdetalles">
+                            <h5>Plato Combinado</h5>
+                            <h5 class="precio">9.00€</h5>
+                        </div>
+                        <p>Lomo adobado, huevos fritos de corral, patatas caseras y pimientos de padrón.</p>
+                        <button>Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="subtitulo-seccion">Postres Caseros</h2>
+            <div class="menu-grid">
+                <div class="Plato">
+                    <img src="./img/slider3.png">
+                    <div class="detalles">
+                        <div class="subdetalles">
+                            <h5>Tarta de la Abuela</h5>
+                            <h5 class="precio">2.50€</h5>
+                        </div>
+                        <p>La receta de toda la vida: capas de galleta, chocolate fundido y natillas caseras.</p>
+                        <button>Añadir</button>
+                    </div>
+                </div>
+
+                <div class="Plato">
+                    <img src="./img/slider3.png">
+                    <div class="detalles">
+                        <div class="subdetalles">
+                            <h5>Flan de Huevo</h5>
+                            <h5 class="precio">2.50€</h5>
+                        </div>
+                        <p>Hecho al baño maría con huevos frescos y caramelo tostado artesanalmente.</p>
+                        <button>Añadir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="seccion-menu" class="tab-content paso-oculto">
+            <div class="tarjeta-menu-especial">
+                <div class="menu-badge">MÁS POPULAR</div>
+                <h2 class="titulo-fraunces">Configura tu Menú</h2>
+                <p class="descripcion-pack">Selecciona tus platos favoritos para completar el menú de 9€.</p>
+
+                <div class="menu-configurador">
+                    
+                    <div class="paso-menu">
+                        <div class="indicador-paso-mini">1</div>
+                        <div class="contenido-paso-mini">
+                            <label>Elige tu Entrante</label>
+                            <select id="menu-entrante">
+                                <option value="" disabled selected>Selecciona un entrante...</option>
+                                <option value="Ensalada Mixta">Ensalada Mixta</option>
+                                <option value="Sopa de Cocido">Sopa de Cocido</option>
+                                <option value="Croquetas Caseras">Croquetas Caseras</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="paso-menu">
+                        <div class="indicador-paso-mini">2</div>
+                        <div class="contenido-paso-mini">
+                            <label>Elige tu Plato Principal</label>
+                            <select id="menu-principal">
+                                <option value="" disabled selected>Selecciona un plato...</option>
+                                <option value="Hamburguesa Clásica">Hamburguesa Clásica</option>
+                                <option value="Plato Combinado">Plato Combinado</option>
+                                <option value="Arroz al Horno">Arroz al Horno</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="paso-menu">
+                        <div class="indicador-paso-mini">3</div>
+                        <div class="contenido-paso-mini">
+                            <label>Elige tu Postre</label>
+                            <select id="menu-postre">
+                                <option value="" disabled selected>Selecciona un postre...</option>
+                                <option value="Tarta de la Abuela">Tarta de la Abuela</option>
+                                <option value="Flan de Huevo">Flan de Huevo</option>
+                                <option value="Fruta del Tiempo">Fruta del Tiempo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="precio-oferta-contenedor">
+                    <span class="precio-tachado">14.50€</span>
+                    <span class="precio-oferta">9.00€</span>
+                </div>
+                
+                <p class="nota-ahorro">¡Ahorras un 38% pidiendo el menú!</p>
+                <button class="btn-añadir-especial" id="add-menu-btn">AÑADIR MENÚ AL PEDIDO</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="mini-cesta" class="cesta-resumida">
+        <h4 class="titulo-fraunces">Tu Cesta</h4>
+        <ul id="lista-resumen"></ul>
+        <div class="info-cesta-pie">
+            <p>Total: <span id="total-mini">0.00€</span></p>
+            <a href="reservas.html" class="btn-ir-reserva">FINALIZAR PEDIDO</a>
+        </div>
     </div>
-    
+
+    <footer>
+        <div class="footer-contenido">
+            <span class="footer-bloque">CASA DE COMIDAS BODEGUETES</span>
+            <span class="footer-separador">|</span>
+            <span class="footer-bloque">Calle Bodeguetes, 97 · Riba-roja de Túria</span>
+            <span class="footer-separador">|</span>
+            <span class="footer-bloque">L-V 12:00-16:00</span>
+            <span class="footer-separador">|</span>
+            <span class="footer-bloque">Tel. 605 475 6960</span>
+        </div>
+        <div class="footer-copy">
+            © 2025 Casa de Comidas Bodeguetes
+        </div>
+    </footer>
+
+    <script src="../js/carta.js"></script>
 </body>
-<script src="../js/carta.js"></script>
 </html>

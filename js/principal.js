@@ -5,7 +5,7 @@ const auto = true;
 const intervalTime = 5000;
 let slideInterval;
 
-const nextSlide = () => {
+const nextSlide = function() {
   // Get current class
   const current = document.querySelector('.current');
   // remove current class
@@ -21,7 +21,7 @@ const nextSlide = () => {
   setTimeout(() => current.classList.remove('current'));
 };
 
-const prevSlide = () => {
+const prevSlide = function() {
   // Get current class
   const current = document.querySelector('.current');
   // remove current class

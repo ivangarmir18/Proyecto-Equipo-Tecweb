@@ -1,44 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contacto</title>
-    <link rel="stylesheet" href="css/contacto.css">
+    <title>Contacto - Casa de Comidas Bodeguetes</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="../css/contacto.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="carta.html">Carta</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1>Página de Contacto</h1>
-            <p>Encuentra nuestra ubicación o llámanos para hacer tu pedido.</p>
+    <div class="header-pagina">
+        <h1>Contacto</h1>
+        <p>&mdash; Estamos en Riba-roja de Túria &mdash;</p>
+    </div>
 
-            <section class="contenedor-contacto">
-            
-                <div class="mapa">
-                    <p>Mapa de Ubicación</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7324.4734860776925!2d-0.34111095210232606!3d39.47922832943243!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604886fbe0a6a9%3A0x196a0f9d7a6a6256!2sTarongers%20-%20Institut%20Tecnol%C3%B2gic!5e0!3m2!1ses!2ses!4v1766166710550!5m2!1ses!2ses" 
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" ></iframe>
+    <main>
+        <section class="seccion-contacto">
+            <div class="info-lado">
+                <h2 class="titulo-fraunces">¿Dónde estamos?</h2>
+                <address>
+                    <p><strong>Dirección:</strong> Calle Bodeguetes, 97, Riba-roja de Túria</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:6054756960">605 475 6960</a></p>
+                    <p><strong>Email:</strong> bodeguetes@comidas.com</p>
+                    <p><strong>Horario:</strong> Lunes a Viernes de 12:00 a 16:00</p>
+                </address>
+                <div class="mapa-contenedor">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.821109750254!2d-0.5724460235925776!3d39.541089408467265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd605932761fccd9%3A0xe33c2fb7cffb7112!2sCasa%20de%20comidas%20Bodeguetes!5e0!3m2!1ses!2ses!4v1767274341455!5m2!1ses!2ses"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+            </div>
 
-                <div class="info-detalles">
-                    <address>
-                        <h3>Dirección</h3>
-                        <p>calle piltover</p>
-                    
-                        <h3>Teléfono</h3>
-                        <p><a href="tel:">telefono</a></p>
-                    
-                        <h3>Correo</h3>
-                        <p><a href="correo@gmail.com">correo@gmail.com</a></p>
-                    </address>
-                </div>
-            </section>
-            
-            <section>
-                <h2>Formulario</h2>
-                <form action="#" method="post">   
-
-                    
+            <div class="formulario-lado">
+                <h2 class="titulo-fraunces">Envíanos un mensaje</h2>
+                <form action="#" method="POST">
+                    <div class="grupo-input">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Tu correo..." required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">ENVIAR CONSULTA</button>
                 </form>
-            </section>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="footer-contenido">
+            <span>CASA DE COMIDAS BODEGUETES | Riba-roja de Túria | L-V 12:00-16:00 | Tel. 605 475 6960</span>
+        </div>
+        <div class="footer-copy">© 2025 Casa de Comidas Bodeguetes</div>
+    </footer>
 </body>
+</html>

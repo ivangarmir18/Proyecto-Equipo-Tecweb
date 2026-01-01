@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalizar Reserva - Casa de Comidas</title>
+    <title>Finalizar Reserva - Casa de Comidas Bodeguetes</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="../css/reservas.css">
 </head>
 <body>
@@ -18,9 +19,10 @@
         </nav>
     </header>
 
-        <div class="contenedor-reservas">
+    <div class="header-pagina">
         <h1>Reservas</h1>
-        </div>
+        <p>&mdash; Finaliza tu pedido &mdash;</p>
+    </div>
 
     <main>
         <div class="stepper">
@@ -28,8 +30,7 @@
             <div class="separador"></div>
             <div class="paso-indicador" id="ind-paso-2">2. Mis Datos</div>
         </div>
-    
-    
+
         <section id="paso-1" class="contenedor-paso">
             <div class="tabla-scroll">
                 <table id="tabla-reserva">
@@ -73,6 +74,18 @@
                         <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" required>
                     </div>
 
+                    <div class="grupo-input">
+                        <label>Tipo de servicio</label>
+                        <div class="opciones-entrega">
+                            <label class="radio-label">
+                                <input type="radio" name="tipo_entrega" value="recoger" checked> Recogida en local
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="tipo_entrega" value="comer"> Comer en el restaurante
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="fila-inputs">
                         <div class="grupo-input">
                             <label for="fecha">Fecha de Recogida</label>
@@ -80,9 +93,17 @@
                         </div>
                         <div class="grupo-input">
                             <label for="hora">Hora de recogida</label>
-                            <select id="hora" name="hora" required placeholder="Seleccione Hora">
-                                </select>
+                            <select id="hora" name="hora" required></select>
                         </div>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="observaciones">Observaciones o Alergias</label>
+                        <textarea id="observaciones" name="observaciones" rows="3" placeholder="Ej: Sin cebolla, alérgico a los frutos secos..."></textarea>
+                    </div>
+
+                    <div class="resumen-confirmacion">
+                        <p>Vas a reservar <strong id="resumen-cantidad">0</strong> platos por un total de <strong id="resumen-total">0.00€</strong>.</p>
                     </div>
 
                     <div class="barra-acciones">
@@ -97,33 +118,24 @@
             </div>
         </section>
 
-        <section id="seccion-exito" class="contenedor-paso paso-oculto">
-            </section>
-
+        <section id="seccion-exito" class="contenedor-paso paso-oculto"></section>
     </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <span class="footer-bloque">CASA DE COMIDAS BODEGUETES</span>
+            <span class="footer-separador">|</span>
+            <span class="footer-bloque">Calle Bodeguetes, 97 · Riba-roja de Túria</span>
+            <span class="footer-separador">|</span>
+            <span class="footer-bloque">L-V 12:00-16:00</span>
+            <span class="footer-separador">|</span>
+            <span class="footer-bloque">Tel. 605 475 6960</span>
+        </div>
+        <div class="footer-copy">
+            © 2025 Casa de Comidas Bodeguetes
+        </div>
+    </footer>
 
     <script src="../js/reservas.js"></script>
 </body>
-
-<footer>
-  <div class="footer-contenido">
-    <span class="footer-bloque">CASA DE COMIDAS BODEGUETES</span>
-
-    <span class="footer-separador">|</span>
-
-    <span class="footer-bloque">Calle Bodeguetes, 97 · Riba-roja de Túria</span>
-
-    <span class="footer-separador">|</span>
-
-    <span class="footer-bloque">L-V 12:00-16:00</span>
-
-    <span class="footer-separador">|</span>
-
-    <span class="footer-bloque">Tel. 605 475 6960</span>
-  </div>
-
-  <div class="footer-copy">
-    © 2025 Casa de Comidas Bodeguetes
-  </div>
-</footer>
 </html>
