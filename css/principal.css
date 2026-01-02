@@ -13,6 +13,7 @@
 }
 
 body {
+    cursor: url("../html/img/cursor.png") 32 32, auto;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
