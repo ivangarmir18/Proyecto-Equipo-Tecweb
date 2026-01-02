@@ -37,9 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
         var htmlContenido = "";
 
         if (pedido.length === 0) {
-            tablaCuerpo.innerHTML = "<tr><td colspan='5' style='text-align:center; padding:30px;'>Cesta vacía</td></tr>";
+            tablaCuerpo.innerHTML = 
+                "<tr>" +
+                    "<td colspan='5' style='text-align:center; padding:50px 20px;'>" +
+                        "<p style='font-size: 20px; color: #111; margin-bottom: 25px;'>(cesta vacía)</p>" +
+                        "<a href='carta.html' class='btn-primario' style='text-decoration: none; display: inline-block;'>" +
+                            "VER CARTA" +
+                        "</a>" +
+                    "</td>" +
+                "</tr>";
+            
+            // También ponemos a cero los totales por si acaso
+            totalCesta.innerText = "0.00€";
+            if (resumenCant) resumenCant.innerText = "0";
+            if (resumenTotal) resumenTotal.innerText = "0.00€";
             return;
-        }
+    }
 
         // Bucle for tradicional para mayor claridad
         for (var i = 0; i < pedido.length; i++) {

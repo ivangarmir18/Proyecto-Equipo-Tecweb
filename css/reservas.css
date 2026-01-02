@@ -23,18 +23,6 @@
     opacity: 0.8;
 }
 
-/* Ajuste del Main para que se solape con el banner */
-main {
-    width: 900px;
-    margin: -60px auto 60px auto; /* El margen negativo de -60px crea el efecto moderno */
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 10;
-}
-
 /* Aplicar la fuente Fraunces a los títulos de la tarjeta */
 h2, .total-monto {
     font-family: "Fraunces", serif;

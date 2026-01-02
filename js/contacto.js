@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     "<h2 style='font-family: Fraunces, serif; color: #410805; font-size: 2.5rem;'>" +
                         "¡Gracias por contactar, " + nombre + "!" +
                     "</h2>" +
-                    "<p style='margin: 20px 0; font-size: 1.2rem;'>" +
+                    "<p style='margin: 20px 0; font-size: 18px;'>" +
                         "Hemos recibido tu mensaje correctamente. <br>" +
                         "Te responderemos lo antes posible." +
                     "</p>" +

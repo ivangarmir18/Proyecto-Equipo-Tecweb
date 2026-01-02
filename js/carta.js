@@ -1,5 +1,4 @@
-// 1. Función GLOBAL para cambiar entre secciones (pestañas)
-// Se coloca fuera para que el "onclick" del HTML pueda encontrarla
+// 1. Función GLOBAL para cambiar entre pestañas
 function mostrarSeccion(seccion) {
     var seccionPlatos = document.getElementById('seccion-platos');
     var seccionMenu = document.getElementById('seccion-menu');
@@ -19,13 +18,39 @@ function mostrarSeccion(seccion) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // 2. Lógica para botones de platos individuales
-    var botones = document.querySelectorAll('.Plato button');
+// 2. Función GLOBAL para eliminar productos
+window.eliminarDeCesta = function(nombre) {
+    var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
+    var nuevoPedido = pedido.filter(function(item) {
+        return item.nombre !== nombre;
+    });
+    localStorage.setItem('pedido', JSON.stringify(nuevoPedido));
+    actualizarMiniCestaUI();
+};
 
-    for (var i = 0; i < botones.length; i++) {
-        botones[i].addEventListener('click', function() {
-            var contenedorPlato = this.parentElement.parentElement;
+var actualizarMiniCestaUI;
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // 3. LÓGICA PARA GIRAR LAS CARTAS (FLIP CARDS)
+    var platos = document.querySelectorAll('.Plato');
+    platos.forEach(function(plato) {
+        plato.addEventListener('click', function(e) {
+            // Si hacemos clic en el botón "Añadir", no queremos que la carta gire
+            if (e.target.tagName === 'BUTTON') return;
+            
+            this.classList.toggle('girado');
+        });
+    });
+
+    // 4. Lógica para botones de añadir platos individuales
+    var botonesAñadir = document.querySelectorAll('.Plato button');
+    botonesAñadir.forEach(function(boton) {
+        boton.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evita que la carta gire al añadir
+            
+            // Buscamos los datos dentro de la cara frontal de la carta
+            var contenedorPlato = this.closest('.Plato');
             var nombre = contenedorPlato.querySelector('h5').innerText;
             var precioTexto = contenedorPlato.querySelector('.precio').innerText;
             var precio = parseFloat(precioTexto.replace('€', '').replace(',', '.'));
@@ -33,22 +58,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
             añadirAlPedido(nombre, precio, imagen);
         });
-    }
+    });
 
-    // 3. Lógica para el botón de "Menú Completo"
+    // 5. NUEVA LÓGICA PARA EL MENÚ (RADIO BUTTONS)
     var btnMenuEspecial = document.querySelector('.btn-añadir-especial');
     if (btnMenuEspecial) {
         btnMenuEspecial.onclick = function() {
-            // Datos fijos del menú de oferta
-            var nombreMenu = "Menú Completo Bodeguetes";
-            var precioMenu = 9.00;
-            var imagenMenu = "./img/slider3.png"; // Puedes cambiar por una imagen de pack
+            // Buscamos el radio button marcado para cada categoría
+            var entranteSel = document.querySelector('input[name="entrante"]:checked');
+            var principalSel = document.querySelector('input[name="principal"]:checked');
+            var postreSel = document.querySelector('input[name="postre"]:checked');
 
-            añadirAlPedido(nombreMenu, precioMenu, imagenMenu);
+            if(!entranteSel || !principalSel || !postreSel) {
+                alert("Por favor, selecciona una foto de cada sección antes de añadir el menú.");
+                return;
+            }
+
+            var nombreMenuDetallado = "Menú: " + entranteSel.value + ", " + principalSel.value + " y " + postreSel.value;
+            var precioMenu = 9.00;
+            var imagenMenu = "./img/slider3.png"; 
+
+            añadirAlPedido(nombreMenuDetallado, precioMenu, imagenMenu);
+            
+            // Desmarcamos los radios tras añadir
+            document.querySelectorAll('.menu-configurador input[type="radio"]').forEach(r => r.checked = false);
         };
     }
 
-    // 4. Función para guardar en LocalStorage
     function añadirAlPedido(nombre, precio, imagen) {
         var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
         var encontrado = false;
@@ -62,20 +98,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (!encontrado) {
-            pedido.push({
-                nombre: nombre,
-                precio: precio,
-                imagen: imagen,
-                cantidad: 1
-            });
+            pedido.push({ nombre: nombre, precio: precio, imagen: imagen, cantidad: 1 });
         }
 
         localStorage.setItem('pedido', JSON.stringify(pedido));
-        actualizarMiniCesta(); 
+        actualizarMiniCestaUI(); 
     }
 
-    // 5. Función para actualizar la interfaz de la minicesta
-    function actualizarMiniCesta() {
+    actualizarMiniCestaUI = function() {
         var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
         var lista = document.getElementById('lista-resumen');
         var panel = document.getElementById('mini-cesta');
@@ -83,20 +113,26 @@ document.addEventListener('DOMContentLoaded', function() {
         var suma = 0;
         var html = "";
 
-        if (pedido.length > 0) {
+        if (pedido && pedido.length > 0) {
             panel.style.display = "block"; 
             for (var k = 0; k < pedido.length; k++) {
                 var subtotal = pedido[k].precio * pedido[k].cantidad;
                 suma += subtotal;
-                html += "<li>" + pedido[k].cantidad + "x " + pedido[k].nombre + " <span>" + subtotal.toFixed(2) + "€</span></li>";
+
+                html += "<li>" + 
+                            "<div class='nombre-item-cesta'><strong>" + pedido[k].cantidad + "x</strong> " + pedido[k].nombre + "</div>" +
+                            "<div style='display:flex; align-items:center; gap:8px;'>" +
+                                "<span style='font-weight:bold; color:#c0392b;'>" + subtotal.toFixed(2) + "€</span>" +
+                                "<button class='btn-borrar-mini' onclick='eliminarDeCesta(\"" + pedido[k].nombre + "\")'>🗑</button>" +
+                            "</div>" +
+                        "</li>";
             }
             lista.innerHTML = html;
             totalTxt.innerText = suma.toFixed(2) + "€";
         } else {
             panel.style.display = "none";
         }
-    }
+    };
 
-    // Carga inicial
-    actualizarMiniCesta();
+    actualizarMiniCestaUI();
 });

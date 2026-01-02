@@ -38,19 +38,6 @@ body {
     opacity: 0.8;
 }
 
-/* Bloque contenedor que "muerde" el banner (Igual que en Reservas) */
-main {
-    width: 900px; 
-    margin: -60px auto 60px auto; /* Solape de -60px */
-    padding: 40px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 10;
-    box-sizing: border-box;
-}
-
 /* 3. SELECTORES TIPO STEPPER (Igual a Reservas) */
 .selector-carta {
     display: flex;
@@ -233,6 +220,13 @@ main {
     font-family: 'Montserrat', sans-serif;
 }
 
+.precio-tachado {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
 .btn-añadir-especial {
     width: 100%;
     background-color: #410805;
@@ -257,7 +251,7 @@ main {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 300px;
+    width: 400px;
     background-color: white;
     border: 2px solid #410805;
     border-radius: 15px;
@@ -281,6 +275,7 @@ main {
     margin: 0 0 15px 0;
     max-height: 200px;
     overflow-y: auto; /* Permite scroll si hay muchos platos */
+    scrollbar-gutter: stable; /* hace que haya espacio para la scrollbar */
 }
 
 #lista-resumen li {
@@ -325,6 +320,97 @@ main {
 .btn-ir-reserva:hover {
     background-color: #5a0b07;
     transform: scale(1.03);
+}
+
+.btn-borrar-mini {
+    color: #111111;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.btn-borrar-mini:hover {
+    color: #c0392b;
+}
+
+/* Contenedor de cada paso (Entrante, Principal, Postre) */
+.seccion-paso-visual {
+    margin-bottom: 35px;
+}
+
+.titulo-paso-visual {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #410805;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-left: 4px solid #410805;
+    padding-left: 10px;
+}
+
+/* Grid horizontal para las 3 opciones */
+.grid-opciones {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Cada tarjeta de opción */
+.opcion-menu {
+    flex: 1;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Escondemos el círculo del radio button original */
+.opcion-menu input[type="radio"] {
+    display: none;
+}
+
+/* Estilo de la imagen */
+.opcion-menu img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid transparent;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Nombre del plato debajo de la foto */
+.nombre-plato-mini {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+    color: #555;
+    line-height: 1.2;
+}
+
+/* Cuando el radio está marcado, cambiamos el borde de la imagen */
+.opcion-menu input[type="radio"]:checked + img {
+    border-color: #410805;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(65, 8, 5, 0.3);
+}
+
+/* Cambiamos el color del texto cuando está seleccionado */
+.opcion-menu input[type="radio"]:checked ~ .nombre-plato-mini {
+    color: #410805;
+    font-weight: 700;
+}
+
+/* Efecto hover suave */
+.opcion-menu:hover img {
+    transform: translateY(-3px);
 }
 
 /* 7. UTILIDADES */
