@@ -9,14 +9,6 @@
     padding: 60px 20px 100px 20px; /* El padding de abajo es mayor para el solape */
 }
 
-.header-pagina h1 {
-    font-family: "Fraunces", serif; /* La fuente del carrusel */
-    color:whitesmoke;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
 .header-pagina p {
     font-family: "Fraunces", serif;
     font-style: italic;
