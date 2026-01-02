@@ -44,15 +44,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target.tagName === 'BUTTON') {
                 return;
             }
-            // Usamos toggle para añadir/quitar la clase que gira
+            // Usamos toggle para anadir/quitar la clase que gira
             this.classList.toggle('girado');
         };
     }
-
-    // 4. Lógica para añadir platos (Navegando el DOM paso a paso)
-    var botonesAñadir = document.querySelectorAll('.Plato button');
-    for (var j = 0; j < botonesAñadir.length; j++) {
-        botonesAñadir[j].onclick = function(e) {
+    
+    // 4. Lógica para anadir platos (Navegando el DOM paso a paso)
+    var botonesanadir = document.querySelectorAll('.btn-anadir');
+    for (var j = 0; j < botonesanadir.length; j++) {
+        botonesanadir[j].onclick = function(e) {
             // Evitamos que el clic llegue a la tarjeta y la gire
             e.stopPropagation(); 
             
@@ -65,12 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var precio = parseFloat(precioTexto.replace('€', '').replace(',', '.'));
             var imagen = card.querySelector('img').src;
 
-            añadirAlPedido(nombre, precio, imagen);
+            anadirAlPedido(nombre, precio, imagen);
         };
     }
 
+
     // 5. NUEVA LÓGICA PARA EL MENÚ (RADIO BUTTONS)
-    var btnMenuEspecial = document.querySelector('.btn-añadir-especial');
+    var btnMenuEspecial = document.querySelector('.btn-anadir-especial');
     if (btnMenuEspecial) {
         btnMenuEspecial.onclick = function() {
             // Buscamos el radio button marcado para cada categoría
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var postreSel = document.querySelector('input[name="postre"]:checked');
 
             if(!entranteSel || !principalSel || !postreSel) {
-                alert("Por favor, selecciona una foto de cada sección antes de añadir el menú.");
+                alert("Por favor, selecciona una foto de cada sección antes de anadir el menú.");
                 return;
             }
 
@@ -87,14 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var precioMenu = 9.00;
             var imagenMenu = "./img/slider3.png"; 
 
-            añadirAlPedido(nombreMenuDetallado, precioMenu, imagenMenu);
+            anadirAlPedido(nombreMenuDetallado, precioMenu, imagenMenu);
             
-            // Desmarcamos los radios tras añadir
+            // Desmarcamos los radios tras anadir
             document.querySelectorAll('.menu-configurador input[type="radio"]').forEach(r => r.checked = false);
         };
     }
 
-    function añadirAlPedido(nombre, precio, imagen) {
+    function anadirAlPedido(nombre, precio, imagen) {
         var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
         var encontrado = false;
 
