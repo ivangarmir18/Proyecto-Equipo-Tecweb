@@ -3,6 +3,7 @@
 /* Importar letras */
 @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');   
 
 /* Configuración básica y Reset */
 * {
@@ -29,6 +30,16 @@ header {
     background: #410805;
     color: #fff;
     padding: 1rem 0;
+}
+
+nav.navbar{
+    position: fixed;    
+    top: 0;           
+    left: 0;
+    width: 100%;        
+    background-color: #410805; 
+    z-index: 100;       /* para que esté encima de todo */
+    padding: 15px 0;
 }
 
 nav ul {
@@ -102,7 +113,7 @@ footer {
 .header-pagina h1 {
     font-family: "Fraunces", serif;
     color: whitesmoke;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
     margin-bottom: 5px;
 }
@@ -112,6 +123,13 @@ footer {
     font-style: italic;
     opacity: 0.8;
     font-size: 1.2rem;
+}
+
+.slogan{
+    display: inline-block;
+    border-top: 1px solid #ede9e480;    /* línea superior */
+    border-bottom: 1px solid #ede9e480; /* línea inferior */
+    padding: 5px 0;
 }
 
 main {
@@ -129,15 +147,16 @@ main {
 /* BLOQUE 2: ESTILOS ESPECÍFICOS DE PRINCIPAL */
 
 /* Título principal */
-.titulo-txt h1{
-    font-family: "Dela Gothic One", sans-serif;
+
+.titulo-txt,header div:nth-child(2){
+    background-image: linear-gradient(to bottom, #410805, #76716d11);
 }
 
 /* Carrusel */
 .slider {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 600px;
     width: 100%;
 }
 
@@ -180,13 +199,13 @@ main {
 /* Botones carrusel */
 .buttons button#next {
     position: absolute;
-    top: 45%;
+    top: 70%;
     right: 15px;
 }
 
 .buttons button#prev {
     position: absolute;
-    top: 45%;
+    top: 70%;
     left: 15px;
 }
 
@@ -218,6 +237,17 @@ main {
     width: 33.33%;
     display: flex;
     justify-content: flex-start;
+    margin-left: 40px;
+}
+
+.elemento-texto1{
+    font-family: "Fraunces", serif;
+    font-size: 58px
+}
+
+.elemento-texto2{
+    margin-left: 8px;
+    font-size: 16px
 }
 
 /* Menú y cartas */
@@ -234,7 +264,7 @@ main {
 }
 
 .elemento-carta1:hover, .elemento-carta2:hover, .elemento-carta3:hover {
-    transform: translateY(-5px);
+    transform: translateY(-30px);
 }
 
 .carta1-inner, .carta2-inner, .carta3-inner {
@@ -248,7 +278,7 @@ main {
     font-size: 26px;
     color: #141414;
     margin-bottom: 25px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.5px;
 }
 
@@ -259,8 +289,9 @@ main {
 }
 
 .principal-lista li, .completo-lista li, .postre-lista li {
+    font-weight: 500;
     font-size: 17px;
-    color: #485463;
+    color: #25292e;
     margin-bottom: 12px;
 }
 
@@ -275,7 +306,7 @@ main {
 
 .principal-precio, .completo-precio, .postre-precio {
     font-size: 16px;
-    color: #3e3e3e;
+    color: #25292e;
 }
 
 .principal-precio .amount, .completo-precio .amount, .postre-precio .amount {
@@ -290,12 +321,6 @@ main {
     display: flex;
     gap: 30px;
     justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .contenedor-carta {
-        flex-direction: column;
-    }
 }
 
 /* Botones de acción */
@@ -358,7 +383,8 @@ main {
 }
 
 .elemento-contacto1 h2 {
-    font-size: 36px;
+    font-family: "Fraunces", serif;
+    font-size: 40px;
     color: #410805;
     margin-bottom: 20px;
 }
