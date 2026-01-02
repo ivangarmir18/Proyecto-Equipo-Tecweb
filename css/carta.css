@@ -65,6 +65,10 @@ body {
     color: white;
 }
 
+.btn-añadir:hover {
+    background-color: #5a0b07;
+    transform: scale(1.02);
+}
 /* 4. GRID DE PLATOS (Totalmente Centrado) */
 .subtitulo-seccion {
     color: #410805;
