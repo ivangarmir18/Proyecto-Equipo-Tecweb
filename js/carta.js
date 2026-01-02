@@ -18,12 +18,16 @@ function mostrarSeccion(seccion) {
     }
 }
 
-// 2. Función GLOBAL para eliminar productos
 window.eliminarDeCesta = function(nombre) {
     var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
-    var nuevoPedido = pedido.filter(function(item) {
-        return item.nombre !== nombre;
-    });
+    var nuevoPedido = [];
+
+    for (var i = 0; i < pedido.length; i++) {
+        if (pedido[i].nombre !== nombre) {
+            nuevoPedido.push(pedido[i]);
+        }
+    }
+    
     localStorage.setItem('pedido', JSON.stringify(nuevoPedido));
     actualizarMiniCestaUI();
 };
@@ -32,33 +36,38 @@ var actualizarMiniCestaUI;
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // 3. LÓGICA PARA GIRAR LAS CARTAS (FLIP CARDS)
+    // 3. Lógica para girar las cartas
     var platos = document.querySelectorAll('.Plato');
-    platos.forEach(function(plato) {
-        plato.addEventListener('click', function(e) {
-            // Si hacemos clic en el botón "Añadir", no queremos que la carta gire
-            if (e.target.tagName === 'BUTTON') return;
-            
+    for (var i = 0; i < platos.length; i++) {
+        platos[i].onclick = function(e) {
+            // Si el clic es en el botón, no giramos
+            if (e.target.tagName === 'BUTTON') {
+                return;
+            }
+            // Usamos toggle para añadir/quitar la clase que gira
             this.classList.toggle('girado');
-        });
-    });
+        };
+    }
 
-    // 4. Lógica para botones de añadir platos individuales
+    // 4. Lógica para añadir platos (Navegando el DOM paso a paso)
     var botonesAñadir = document.querySelectorAll('.Plato button');
-    botonesAñadir.forEach(function(boton) {
-        boton.addEventListener('click', function(e) {
-            e.stopPropagation(); // Evita que la carta gire al añadir
+    for (var j = 0; j < botonesAñadir.length; j++) {
+        botonesAñadir[j].onclick = function(e) {
+            // Evitamos que el clic llegue a la tarjeta y la gire
+            e.stopPropagation(); 
             
-            // Buscamos los datos dentro de la cara frontal de la carta
-            var contenedorPlato = this.closest('.Plato');
-            var nombre = contenedorPlato.querySelector('h5').innerText;
-            var precioTexto = contenedorPlato.querySelector('.precio').innerText;
+            // Subimos por el DOM hasta llegar al contenedor principal .Plato
+            // En lugar de closest(), usamos parentElement que es más básico
+            var card = this.parentElement.parentElement; 
+            
+            var nombre = card.querySelector('h5').innerText;
+            var precioTexto = card.querySelector('.precio').innerText;
             var precio = parseFloat(precioTexto.replace('€', '').replace(',', '.'));
-            var imagen = contenedorPlato.querySelector('img').src;
+            var imagen = card.querySelector('img').src;
 
             añadirAlPedido(nombre, precio, imagen);
-        });
-    });
+        };
+    }
 
     // 5. NUEVA LÓGICA PARA EL MENÚ (RADIO BUTTONS)
     var btnMenuEspecial = document.querySelector('.btn-añadir-especial');
@@ -124,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             "<div style='display:flex; align-items:center; gap:8px;'>" +
                                 "<span style='font-weight:bold; color:#c0392b;'>" + subtotal.toFixed(2) + "€</span>" +
                                 "<button class='btn-borrar-mini' onclick='eliminarDeCesta(\"" + pedido[k].nombre + "\")'>🗑</button>" +
-                            "</div>" +
+                            "</div>" + 
                         "</li>";
             }
             lista.innerHTML = html;
