@@ -2,7 +2,7 @@
    ARCHIVO: carta-fusionada.css
    PROYECTO: Casa de Comidas Bodeguetes
    DESCRIPCIÓN: Fusión del CSS "carta.css" (versión 1) y la segunda versión más completa.
-   Objetivo: conservar la mayor parte de funcionalidades del primer fichero y añadir
+   Objetivo: conservar la mayor parte de funcionalidades del primer fichero y anadir
    las mejoras / utilidades / estilos del segundo cuando no existían.
    ============================================================ */
 
@@ -259,7 +259,7 @@ body {
 }
 
 /* Botón principal empujado al fondo */
-.btn-añadir {
+.btn-anadir {
     margin-top: auto;
     width: 100%;
     background-color: #410805;
@@ -275,13 +275,13 @@ body {
     transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
-.btn-añadir:hover {
+.btn-anadir:hover {
     background-color: #5a0b07;
     transform: scale(1.02);
 }
 
 /* Botón especial (segunda versión) */
-.btn-añadir-especial {
+.btn-anadir-especial {
     width: 100%;
     background-color: #410805;
     color: white;
@@ -295,7 +295,7 @@ body {
     transition: 0.3s;
 }
 
-.btn-añadir-especial:hover { background-color: #5a0b07; }
+.btn-anadir-especial:hover { background-color: #5a0b07; }
 
 /* ------------------------------------------------------------
    9. CONFIGURADOR VISUAL DEL MENÚ (RADIO BUTTONS)
@@ -477,7 +477,7 @@ footer { margin-top: auto; }
    ------------------------------------------------------------ */
 
 /* Focus visible para accesibilidad en botones y radios */
-.tab-btn:focus, .btn-añadir:focus, .btn-añadir-especial:focus, .opcion-menu input[type="radio"]:focus {
+.tab-btn:focus, .btn-anadir:focus, .btn-anadir-especial:focus, .opcion-menu input[type="radio"]:focus {
     outline: 3px solid rgba(65,8,5,0.12);
     outline-offset: 3px;
 }
