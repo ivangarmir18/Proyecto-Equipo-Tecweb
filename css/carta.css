@@ -189,7 +189,7 @@ body {
 }
 
 .Plato:hover .img-container img {
-    transform: scale(1.18);
+    transform: scale(1.1);
 }
 
 /* ------------------------------------------------------------
@@ -216,12 +216,21 @@ body {
 /* ------------------------------------------------------------
    8. CONTENIDO, BOTONES Y DETALLES
    ------------------------------------------------------------ */
-.detalles, .contenido-detras {
+.detalles {
     padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     text-align: left;
+}
+
+.contenido-detras{
+    display: flex;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    min-height: 350px; 
 }
 
 .subdetalles {
@@ -251,7 +260,7 @@ body {
 }
 
 .contenido-detras p {
-    font-size: 14px;
+    font-size:15px;
     line-height: 1.7;
     color: #444;
     margin-bottom: 20px;
@@ -260,6 +269,7 @@ body {
 
 /* Botón principal empujado al fondo */
 .btn-anadir {
+    font-family: 'Montserrat', sans-serif;
     margin-top: auto;
     width: 100%;
     background-color: #410805;
@@ -282,6 +292,7 @@ body {
 
 /* Botón especial (segunda versión) */
 .btn-anadir-especial {
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
     background-color: #410805;
     color: white;

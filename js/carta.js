@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('girado');
         };
     }
-    
+
     // 4. Lógica para anadir platos (Navegando el DOM paso a paso)
     var botonesanadir = document.querySelectorAll('.btn-anadir');
     for (var j = 0; j < botonesanadir.length; j++) {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var nombreMenuDetallado = "Menú: " + entranteSel.value + ", " + principalSel.value + " y " + postreSel.value;
             var precioMenu = 9.00;
-            var imagenMenu = "./img/slider3.png"; 
+            var imagenMenu = "../html/img/menu.jpg"; 
 
             anadirAlPedido(nombreMenuDetallado, precioMenu, imagenMenu);
             
