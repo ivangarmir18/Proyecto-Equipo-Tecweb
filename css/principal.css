@@ -107,7 +107,7 @@ footer {
     background-color: #410805;
     color: #f3ede8;
     text-align: center;
-    padding: 60px 20px 100px 20px;
+    padding: 60px 20px 80px 20px;
 }
 
 .header-pagina h1 {
@@ -227,7 +227,7 @@ main {
 /* Background images carrusel */
 .slide:first-child { background: url('../html/img/slider1.png') no-repeat center center/cover; }
 .slide:nth-child(2) { background: url('../html/img/slider2.png') no-repeat center center/cover; }
-.slide:nth-child(3) { background: url('../html/img/slider3.png') no-repeat center center/cover; }
+.slide:nth-child(3) { background: url('../html/img/slider3.jpg') no-repeat center center/cover; }
 .slide:nth-child(4) { background: url('../html/img/slider4.jpg') no-repeat center center/cover; }
 .slide:nth-child(5) { background: url('../html/img/slider5.jpg') no-repeat center center/cover; }
 .slide:nth-child(6) { background: url('../html/img/slider6.jpg') no-repeat center center/cover; }
