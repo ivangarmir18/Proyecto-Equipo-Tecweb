@@ -207,6 +207,7 @@ h2, .total-monto {
 /* Botones */
 .btn-primario, .btn-exito {
     background-color: #410805;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     padding: 16px 40px;
     border: none;
