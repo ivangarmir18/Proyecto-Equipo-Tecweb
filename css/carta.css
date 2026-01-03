@@ -1,31 +1,20 @@
-/* ============================================================
-   ARCHIVO: carta-fusionada.css
-   PROYECTO: Casa de Comidas Bodeguetes
-   DESCRIPCIÓN: Fusión del CSS "carta.css" (versión 1) y la segunda versión más completa.
-   Objetivo: conservar la mayor parte de funcionalidades del primer fichero y anadir
-   las mejoras / utilidades / estilos del segundo cuando no existían.
-   ============================================================ */
+/*ESTILOS CSS DE LA SECCIÓN CARTA */
 
-/* ------------------------------------------------------------
-   IMPORTS
-   ------------------------------------------------------------ */
 @import url('principal.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
-/* ------------------------------------------------------------
-   1. CONFIGURACIÓN BASE Y TIPOGRAFÍAS
-   ------------------------------------------------------------ */
+/* Estilos básicos de la página*/
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* ocupa como mínimo toda la pantalla */
     font-family: 'Montserrat', sans-serif;
     background-color: #f3ede8;
     color: #141414;
-    overflow-x: hidden; /* Evita desplazamientos laterales por animaciones */
+    overflow-x: hidden; /* para que los elementos no sobresalgan de la página */
 }
 
-/* Fraunces para títulos decorativos */
+
 .header-pagina h1,
 .subtitulo-seccion,
 .titulo-fraunces {
@@ -33,17 +22,16 @@ body {
     font-weight: 800;
 }
 
-/* ------------------------------------------------------------
-   2. SELECTOR DE PESTAÑAS / TABS
-   ------------------------------------------------------------ */
+
 .selector-carta {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 18px; /* espacio entre los botones*/
     margin-bottom: 45px;
 }
 
+/* Botones Plato Suelto y menú completo */
 .tab-btn {
     padding: 12px 28px;
     background: #e0e0e0;
@@ -53,11 +41,12 @@ body {
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
-    cursor: pointer;
+    cursor: pointer; /* cambiamos el cursor al pasar por los botones */
     transition: all 0.35s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /*sombreado*/
 }
 
+/* Para el botón que este activo en el momento */
 .tab-btn.activo {
     background-color: #410805;
     color: white;
@@ -65,27 +54,27 @@ body {
     box-shadow: 0 6px 12px rgba(65, 8, 5, 0.18);
 }
 
+/* Para el botón que no este activo*/
 .tab-btn:hover:not(.activo) {
     background-color: #d5d5d5;
     color: #410805;
 }
 
-/* ------------------------------------------------------------
-   4. GRID DE PLATOS (SIMETRÍA Y CENTRADO)
-   ------------------------------------------------------------ */
+/* Títulos de las secciones */
 .subtitulo-seccion {
     color: #410805;
-    font-size: 2.0rem; /* tamaño equilibrado */
+    font-size: 32px; 
     padding-bottom: 12px;
     margin: 50px 0 35px 0;
     text-align: center;
     position: relative;
 }
 
+/* Linea decorativa debajo de cada título de sección */
 .subtitulo-seccion::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 80px;
     height: 3px;
     background: #410805;
     margin: 15px auto 0 auto;
@@ -93,25 +82,22 @@ body {
 
 .menu-grid {
     display: grid;
-    /* Forzamos columnas entre 280px y 300px para simetría y responsividad */
     grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
     gap: 30px;
     justify-content: center;
     padding: 20px 0;
 }
 
-/* ------------------------------------------------------------
-   5. ARQUITECTURA FLIP CARD (3D) + VERSIÓN COMPACTA
-   ------------------------------------------------------------ */
+/* Targeta de cada plato */
 .Plato {
     width: 300px;
-    height: 350px; /* altura generosa por defecto */
-    perspective: 1500px; /* intensidad del 3D */
+    height: 350px; 
+    perspective: 1500px; /*Efecto 3d*/
     background: transparent;
     margin-bottom: 0;
 }
 
-/* Versión compacta (según la segunda versión) */
+/* ???????????*/
 .Plato.compact {
     background-color: transparent;
     width: 100%;
@@ -120,6 +106,7 @@ body {
     perspective: 1000px;
 }
 
+/* Contenido de la targeta que gira*/
 .Plato-interno {
     position: relative;
     width: 100%;
@@ -132,20 +119,20 @@ body {
     cursor: pointer;
 }
 
-/* Estado girado por JS */
+/* Rotación del interior para mostrar la parte de detrás de la targeta*/
 .Plato.girado .Plato-interno {
     transform: rotateY(180deg);
 }
 
-/* Elevación al hover (ambas versiones mezcladas) */
+/* Elevación al pasar el cursor por una targeta */
 .Plato:not(.girado):hover .Plato-interno {
     transform: translateY(-2px);
     box-shadow: 0 15px 35px rgba(65, 8, 5, 0.15);
 }
 
-/* ------------------------------------------------------------
-   6. IMAGEN Y ZOOM
-   ------------------------------------------------------------ */
+/* Configuración de las imágenes de las targetas*/
+
+/* Espacio para las imágenes*/
 .img-container {
     width: 100%;
     height: 210px;
@@ -155,6 +142,7 @@ body {
     position: relative;
 }
 
+/* ajustamos la imagen para llenar el espacio*/
 .img-container img {
     width: 100%;
     height: 100%;
@@ -162,13 +150,12 @@ body {
     transition: transform 0.6s ease;
 }
 
+/* Zoom de la imagen al pasar el cusor sobre ella*/
 .Plato:hover .img-container img {
     transform: scale(1.1);
 }
 
-/* ------------------------------------------------------------
-   7. CARAS DEL PLATO (DELANTE / DETRÁS)
-   ------------------------------------------------------------ */
+/*Caras de la tarjeta 3d de los platos*/
 .cara-delante, .cara-detras {
     position: absolute;
     width: 100%;
@@ -187,9 +174,7 @@ body {
     background: #fff;
 }
 
-/* ------------------------------------------------------------
-   8. CONTENIDO, BOTONES Y DETALLES
-   ------------------------------------------------------------ */
+/* Otro contenido de las tarjetas */
 .detalles {
     padding: 20px;
     display: flex;
@@ -197,6 +182,7 @@ body {
     flex-grow: 1;
     text-align: left;
 }
+
 
 .contenido-detras{
     display: flex;
@@ -207,15 +193,17 @@ body {
     min-height: 350px; 
 }
 
+/* Zona nombre y precio*/
 .subdetalles {
     display: flex;
-    flex-direction: column; /* apilar nombre + precio y centrar */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     gap: 8px;
     margin-bottom: 12px;
 }
 
+/* Nombres de los platos*/
 .subdetalles h5 {
     font-size: 18px;
     font-weight: 700;
@@ -225,23 +213,24 @@ body {
 
 .precio {
     color: #c0392b;
-    font-size: 26px; /* más grande para destacar */
+    font-size: 26px; 
     font-weight: 800;
     display: block;
     width: 100%;
-    text-align: center; /* alineado al centro */
+    text-align: center; 
     margin-top: 8px;
 }
 
+/* Párrafo de descripción de la parte trasera*/
 .contenido-detras p {
     font-size:15px;
-    line-height: 1.7;
+    line-height: 1.7; /* Interlineado*/
     color: #444;
     margin-bottom: 20px;
     font-weight: 500;
 }
 
-/* Botón principal empujado al fondo */
+/* Botón añadir */
 .btn-anadir {
     font-family: 'Montserrat', sans-serif;
     margin-top: auto;
@@ -253,12 +242,12 @@ body {
     border-radius: 12px;
     font-weight: 700;
     font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: uppercase; /* Texto en mayúsculas*/
+    letter-spacing: 1px; /* Separación entre letras*/
     cursor: pointer;
     transition: transform 0.25s ease, background-color 0.25s ease;
 }
-
+/* Al pasar el cursor sobre el botón*/
 .btn-anadir:hover {
     background-color: #5a0b07;
     transform: scale(1.02);
@@ -473,6 +462,4 @@ footer { margin-top: auto; }
 /* Sombra suave global para tarjetas */
 .Plato, .tarjeta-menu-especial { -webkit-font-smoothing: antialiased; }
 
-/* ------------------------------------------------------------
-   FIN - carta-fusionada.css
-   ============================================================ */
+
