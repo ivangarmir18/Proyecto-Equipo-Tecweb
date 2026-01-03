@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
     }
 
-        // Bucle for tradicional para mayor claridad
         for (var i = 0; i < pedido.length; i++) {
             var plato = pedido[i];
             var subtotal = plato.precio * plato.cantidad;
@@ -108,6 +107,15 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('paso-2').classList.remove('paso-oculto');
             document.getElementById('ind-paso-1').className = 'paso-indicador completado';
             document.getElementById('ind-paso-2').className = 'paso-indicador activo';
+        };
+    }
+    var btnPaso1 = document.getElementById('volver-paso-1');
+    if (btnPaso1) {
+        btnPaso1.onclick = function() {
+            document.getElementById('paso-1').classList.remove('paso-oculto');
+            document.getElementById('paso-2').classList.add('paso-oculto');
+            document.getElementById('ind-paso-1').className = 'paso-indicador activo';
+            document.getElementById('ind-paso-2').className = 'paso-indicador';
         };
     }
 
