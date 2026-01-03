@@ -34,33 +34,7 @@ body {
 }
 
 /* ------------------------------------------------------------
-   2. BANNER SUPERIOR (SOLAPE)
-   ------------------------------------------------------------ */
-.header-pagina {
-    background-color: #410805;
-    color: #f3ede8;
-    text-align: center;
-    padding: 80px 20px 100px 20px; /* equilibrio entre ambas versiones */
-    position: relative;
-}
-
-.header-pagina h1 {
-    color: whitesmoke;
-    font-size: 3.6rem; /* tamaño intermedio */
-    font-weight: 700;
-    margin-bottom: 8px;
-    letter-spacing: -1px;
-}
-
-.header-pagina p {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    opacity: 0.85;
-    font-size: 1.25rem;
-}
-
-/* ------------------------------------------------------------
-   3. SELECTOR DE PESTAÑAS / TABS
+   2. SELECTOR DE PESTAÑAS / TABS
    ------------------------------------------------------------ */
 .selector-carta {
     display: flex;

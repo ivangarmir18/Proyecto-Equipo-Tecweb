@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // 4. Lógica para anadir platos (Navegando el DOM paso a paso)
+    // 4. Lógica para anadir platos
     var botonesanadir = document.querySelectorAll('.btn-anadir');
     for (var j = 0; j < botonesanadir.length; j++) {
         botonesanadir[j].onclick = function(e) {
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation(); 
             
             // Subimos por el DOM hasta llegar al contenedor principal .Plato
-            // En lugar de closest(), usamos parentElement que es más básico
             var card = this.parentElement.parentElement; 
             
             var nombre = card.querySelector('h5').innerText;
@@ -69,8 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-
-    // 5. NUEVA LÓGICA PARA EL MENÚ (RADIO BUTTONS)
     var btnMenuEspecial = document.querySelector('.btn-anadir-especial');
     if (btnMenuEspecial) {
         btnMenuEspecial.onclick = function() {
@@ -96,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function anadirAlPedido(nombre, precio, imagen) {
-        var pedido = JSON.parse(localStorage.getItem('pedido')) || [];
+        var pedido = JSON.parse(localStorage.getItem('pedido')) || []; // Busca Pedido, si no existe manda un array vacío para evitar null
         var encontrado = false;
 
         for (var j = 0; j < pedido.length; j++) {

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var resumenTotal = document.getElementById('resumen-total');
     var inputFecha = document.getElementById('fecha');
 
-    // 1. Configuración de fecha
+    // 1. Configuración de fecha (buscado en tutorial)
     var hoy = new Date().toISOString().split('T')[0];
     if (inputFecha) inputFecha.min = hoy;
 
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function obtenerPedido() {
-        return JSON.parse(localStorage.getItem('pedido')) || [];
+        return JSON.parse(localStorage.getItem('pedido')) || []; // Busca Pedido, si no existe manda un array vacío para evitar null
     }
 
     function guardarPedido(pedido) {
-        localStorage.setItem('pedido', JSON.stringify(pedido));
+        localStorage.setItem('pedido', JSON.stringify(pedido)); // Lo almacena como si fuera una caché para guardar entre páginas o en F5
     }
 
     function dibujarCesta() {
