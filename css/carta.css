@@ -358,9 +358,7 @@ body {
     font-weight: 900;
 }
 
-/* ------------------------------------------------------------
-   11. MINICESTA FLOTANTE (MEJORAS DE AMBAS VERSIONES)
-   ------------------------------------------------------------ */
+/* MINICESTA FLOTANTE*/
 .cesta-resumida {
     position: fixed;
     bottom: 35px;

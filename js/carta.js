@@ -74,14 +74,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Buscamos el radio button marcado para cada categoría
             var entranteSel = document.querySelector('input[name="entrante"]:checked');
             var principalSel = document.querySelector('input[name="principal"]:checked');
+            var bebidaSel = document.querySelector('input[name="bebida"]:checked');
             var postreSel = document.querySelector('input[name="postre"]:checked');
 
-            if(!entranteSel || !principalSel || !postreSel) {
+            if(!entranteSel || !principalSel || !bebidaSel || !postreSel ) {
                 alert("Por favor, selecciona una foto de cada sección antes de anadir el menú.");
                 return;
             }
 
-            var nombreMenuDetallado = "Menú: " + entranteSel.value + ", " + principalSel.value + " y " + postreSel.value;
+            var nombreMenuDetallado = "Menú: " + entranteSel.value + ", " + principalSel.value + ", " + bebidaSel.value + " y " + postreSel.value;
             var precioMenu = 9.00;
             var imagenMenu = "../html/img/menu.jpg"; 
 
