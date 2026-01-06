@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
         formComanda.onsubmit = function(e) {
             e.preventDefault();
             var datos = new FormData(e.target);
-            var tipoServicio = datos.get('tipo_entrega') === 'recoger' ? "Recogida" : "En restaurante";
 
             document.getElementById('paso-2').classList.add('paso-oculto');
             var exito = document.getElementById('seccion-exito');
@@ -133,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             exito.className = 'mensaje-exito';
 
             exito.innerHTML = "<h2>¡Reserva Confirmada!</h2>" +
-                "<p>Hola <strong>" + datos.get('nombre') + "</strong>, tu pedido para <strong>" + tipoServicio + "</strong> ha sido registrado.</p>" +
+                "<p>Hola <strong>" + datos.get('nombre') + "</strong>, tu pedido para <strong>" + "</strong> ha sido registrado.</p>" +
                 "<p>Te esperamos el <strong>" + datos.get('fecha') + "</strong> a las <strong>" + datos.get('hora') + "</strong>.</p>" +
                 "<div style='margin-top:20px;'>" + "<button class='btn-primario' onclick='location.reload()'>Volver</button>" + "</div>";
             

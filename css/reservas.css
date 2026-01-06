@@ -143,7 +143,7 @@ h2, .total-monto {
     background: white;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Recuperada */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .grupo-input {
@@ -219,9 +219,9 @@ h2, .total-monto {
     padding: 40px;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Recuperada */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-/* Estilos para los nuevos campos */
+
 .opciones-entrega {
     display: flex;
     gap: 20px;
