@@ -32,7 +32,7 @@ window.eliminarDeCesta = function(nombre) {
     actualizarMiniCestaUI();
 };
 
-var actualizarMiniCestaUI;
+var actualizarMiniCestaUI; //Definimos la variable ya (que será función después) para que sea global y lo pueda usar "eliminarDeCesta"
 
 document.addEventListener('DOMContentLoaded', function() {
 
