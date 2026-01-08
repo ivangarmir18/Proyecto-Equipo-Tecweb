@@ -1,43 +1,42 @@
 // Principal - Gloria Gordaliza Albert
 
 const nextSlide = function() {
-  // Localizar la diapositiva activa actualmente
+  // Definimos el slide activo
   const current = document.querySelector('.current');
-  // Quitar la clase current
+
+  // buscamos la siguiente diapositiva que tenga la clase slide
+  const next = document.querySelector('.current + .slide');
+
+  // quitar current a la actual
   current.classList.remove('current');
 
-  // Comprobar si existe la siguiente diapositiva
-  if(current.nextElementSibling) {
-    // Marcar la siguiente diapositiva como activa
-    current.nextElementSibling.classList.add('current');
-  } 
-  else {
-    // Marcar la primera diapositiva como activa si no hay siguiente
-    slides[0].classList.add('current');
+  if (next) {
+    // si existe una slide justo después, activarla
+    next.classList.add('current');
+  } else {
+    // si no, volver a la primera slide
+    document.querySelector('.slide').classList.add('current');
   }
-
-  setTimeout(function() {
-    current.classList.remove('current');
-  });
 };
 
 const prevSlide = function() {
-  // Localizar la diapositiva activa actualmente
   const current = document.querySelector('.current');
+  const slides = document.querySelectorAll('.slide');
+
   current.classList.remove('current');
 
-  
-  if(current.previousElementSibling) { // si existe diapositiva anterior -> marcar como activa
-    current.previousElementSibling.classList.add('current');
-  } 
-  else {// si no, marcar la última
-
-    slides[slides.length - 1].classList.add('current');
+  // si la actual es la primera
+  if (current === slides[0]) {
+    slides[slides.length - 1].classList.add('current'); // ponemos current a la última
+  } else {
+    // buscar cuál era la anterior
+    for (let i = 0; i < slides.length; i++) {
+      if (slides[i] === current) {
+        slides[i - 1].classList.add('current');
+        break;
+      }
+    }
   }
-
-  setTimeout(function() {
-    current.classList.remove('current');
-  });
 };
 
 // Configurar eventos de los botones
