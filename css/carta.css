@@ -88,7 +88,7 @@ body {
     padding: 20px 0;
 }
 
-/* Targeta de cada plato */
+/* tarjeta de cada plato */
 .Plato {
     width: 300px;
     height: 350px; 
@@ -106,7 +106,7 @@ body {
     perspective: 1000px;
 }
 
-/* Contenido de la targeta que gira*/
+/* Contenido de la tarjeta que gira*/
 .Plato-interno {
     position: relative;
     width: 100%;
@@ -119,18 +119,18 @@ body {
     cursor: pointer;
 }
 
-/* Rotación del interior para mostrar la parte de detrás de la targeta*/
+/* Rotación del interior para mostrar la parte de detrás de la tarjeta*/
 .Plato.girado .Plato-interno {
     transform: rotateY(180deg);
 }
 
-/* Elevación al pasar el cursor por una targeta */
+/* Elevación al pasar el cursor por una tarjeta */
 .Plato:not(.girado):hover .Plato-interno {
     transform: translateY(-2px);
     box-shadow: 0 15px 35px rgba(65, 8, 5, 0.15);
 }
 
-/* Configuración de las imágenes de las targetas*/
+/* Configuración de las imágenes de las tarjetas*/
 
 /* Espacio para las imágenes*/
 .img-container {
