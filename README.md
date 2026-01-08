@@ -25,16 +25,20 @@ El proyecto se realizó como parte de la asignatura de **Tecnologías Web**, per
 ## 🖼️ Capturas del proyecto
 
 ### Página principal
-![Página principal]()
+![Página principal](html/img/abc.png)
 
 ### Carta de productos
-![Carta de productos](img/parte_delantera.png)
+![Carta de productos](html/img/abc1.png)
+
+![Carta de productos](html/img/abc2.png)
+
+![Carta de productos](html/img/abc3.png)
 
 ### Vista trasera de las tarjetas (Flip Card)
-![Tarjeta trasera](img/parte_trasera.png)
+![Tarjeta trasera](html/img/abc4.png)
 
 ### Mini-cesta flotante
-![Mini-cesta](img/mini_cesta.png)
+![Mini-cesta](html/img/abc5.png)
 
 
 ---
