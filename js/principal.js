@@ -1,64 +1,70 @@
-const slides = document.querySelectorAll('.slide');
-const next = document.querySelector('#next');
-const prev = document.querySelector('#prev');
-const auto = true;
-const intervalTime = 5000;
-let slideInterval;
+// Principal - Gloria Gordaliza Albert
 
 const nextSlide = function() {
-  // Get current class
+  // Localizar la diapositiva activa actualmente
   const current = document.querySelector('.current');
-  // remove current class
+  // Quitar la clase current
   current.classList.remove('current');
-  // Check for next slide
+
+  // Comprobar si existe la siguiente diapositiva
   if(current.nextElementSibling) {
-    // Add current to next sibling
+    // Marcar la siguiente diapositiva como activa
     current.nextElementSibling.classList.add('current');
-  } else {
-    // Add current to start
+  } 
+  else {
+    // Marcar la primera diapositiva como activa si no hay siguiente
     slides[0].classList.add('current');
   }
-  setTimeout(() => current.classList.remove('current'));
+
+  setTimeout(function() {
+    current.classList.remove('current');
+  });
 };
 
 const prevSlide = function() {
-  // Get current class
+  // Localizar la diapositiva activa actualmente
   const current = document.querySelector('.current');
-  // remove current class
   current.classList.remove('current');
-  // Check for prev slide
-  if(current.previousElementSibling) {
-    // Add current to next sibling
+
+  
+  if(current.previousElementSibling) { // si existe diapositiva anterior -> marcar como activa
     current.previousElementSibling.classList.add('current');
-  } else {
-    // Add current to last
+  } 
+  else {// si no, marcar la última
+
     slides[slides.length - 1].classList.add('current');
   }
-  setTimeout(() => current.classList.remove('current'));
+
+  setTimeout(function() {
+    current.classList.remove('current');
+  });
 };
 
-// Button events
-next.addEventListener('click', e => {
+// Configurar eventos de los botones
+
+// next = botón de después
+next.addEventListener('click', function(e) {
+  // Pasar a la siguiente diapositiva
   nextSlide();
   if(auto) {
+    // Reiniciar el temporizador automático
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, intervalTime);
-
   }
 });
 
-prev.addEventListener('click', e => {
+// prev = botón de antes
+prev.addEventListener('click', function(e) {
+  // Pasar a la diapositiva anterior
   prevSlide();
   if(auto) {
+    // Reiniciar el temporizador automático
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, intervalTime);
-
   }
-
 });
 
-// Auto slide
+// Reproducción automática del carrusel
 if(auto) {
-  // Run next slide at interval time
   slideInterval = setInterval(nextSlide, intervalTime);
 }
