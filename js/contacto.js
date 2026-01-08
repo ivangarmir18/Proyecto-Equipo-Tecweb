@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         formulario.onsubmit = function(e) {
             e.preventDefault();
 
-            var datos = new FormData(formulario);
-            var nombre = datos.get("nombre");
+            var nombre = document.getElementById("nombre").value;
 
             contenedorPrincipal.innerHTML =
                 "<div class=\"mensaje-exito\" style=\"text-align: center; padding: 60px 20px;\">" +
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             inputFile.click();
         });
 
-        // efectos visuales
+        // para arrastrar archivos en la zona
         caja.addEventListener("dragover", function(e) {
             e.preventDefault();
             caja.classList.add("dragover");
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             mostrarImagen(file);
         });
 
-        // seleccionar imagen desde el explorador
+        // para detectar la selección de imagen desde el explorador abierto
         inputFile.addEventListener("change", function() {
             var file = this.files[0];
             if (file) mostrarImagen(file);
