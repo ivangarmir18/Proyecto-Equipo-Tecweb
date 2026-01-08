@@ -124,18 +124,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (formComanda) {
         formComanda.onsubmit = function(e) {
             e.preventDefault();
-            var datos = new FormData(e.target);
 
+            // 1. Capturamos los valores
+            var nombre = document.getElementById('nombre').value;
+            var fecha = document.getElementById('fecha').value;
+            var hora = document.getElementById('hora').value;
+
+            // 2. Ocultamos el formulario y mostramos el éxito
             document.getElementById('paso-2').classList.add('paso-oculto');
             var exito = document.getElementById('seccion-exito');
             exito.classList.remove('paso-oculto');
             exito.className = 'mensaje-exito';
 
             exito.innerHTML = "<h2>¡Reserva Confirmada!</h2>" +
-                "<p>Hola <strong>" + datos.get('nombre') + "</strong>, tu pedido para <strong>" + "</strong> ha sido registrado.</p>" +
-                "<p>Te esperamos el <strong>" + datos.get('fecha') + "</strong> a las <strong>" + datos.get('hora') + "</strong>.</p>" +
-                "<div style='margin-top:20px;'>" + "<button class='btn-primario' onclick='location.reload()'>Volver</button>" + "</div>";
+                "<p>Hola <strong>" + nombre + "</strong>, tu pedido ha sido registrado.</p>" +
+                "<p>Te esperamos el <strong>" + fecha + "</strong> a las <strong>" + hora + "</strong>.</p>" +
+                "<div style='margin-top:20px;'>" + 
+                    "<button class='btn-primario' onclick='location.reload()'>Volver</button>" + 
+                "</div>";
             
+            // 4. Limpiamos el carrito
             localStorage.removeItem('pedido');
         };
     }
