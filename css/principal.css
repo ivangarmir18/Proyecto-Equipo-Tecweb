@@ -197,16 +197,24 @@ main {
 }
 
 /* Botones carrusel */
-.buttons button#next {
-    position: absolute;
-    top: 75%;
-    right: 15px;
-}
-
+.buttons button#next, 
 .buttons button#prev {
     position: absolute;
-    top: 75%;
-    left: 15px;
+    top: 50%;
+    transform: translateY(-50%); /* Corrige su propia altura para centrarlos exactamente */
+}
+
+.buttons button#next {
+    right: 20px;
+}
+.buttons button#prev {
+    left: 20px;
+}
+
+.buttons button:hover {
+    background-color: #fff;
+    color: #410805;
+    transform: translateY(-50%) scale(1.1); /* Mantiene el centrado y agranda un poco */
 }
 
 .buttons button {
@@ -217,11 +225,7 @@ main {
     padding: 13px 15px;
     border-radius: 50%;
     outline: none;
-}
-
-.buttons button:hover {
-    background-color: #fff;
-    color: #333;
+    transition: all 0.3s ease;
 }
 
 /* Background images carrusel */
