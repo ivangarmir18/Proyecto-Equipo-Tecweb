@@ -395,3 +395,125 @@ main {
     color: #333;
     margin-bottom: 40px;
 }
+/* MEDIA QUERIES */
+
+/* Para pantallas medianas (menos de 1024px) */
+@media (max-width: 1024px) {
+    main {
+        width: 90%; /* Cambiamos 900px fijos por porcentaje para que no se corte */
+    }
+    
+    .contenedor-carta {
+        gap: 20px; /* Reducimos el espacio entre cartas */
+    }
+    
+    .elemento-carta1, .elemento-carta2, .elemento-carta3 {
+        width: 30%; /* Para que quepan 3 en fila pero más estrechas */
+        padding: 30px 20px; /* Menos relleno */
+    }
+}
+
+/* Para móviles y tablets pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+
+    /* 1. Ajuste del Contenedor Principal */
+    main {
+        width: 95%;
+        margin-top: -30px; /* Menos solape con el header */
+        padding: 20px; /* Menos padding interno */
+    }
+
+    /* 2. Header y Navegación */
+    .header-pagina {
+        padding: 40px 15px 80px 15px;
+    }
+
+    .header-pagina h1 {
+        font-size: 40px; /* Reducimos de 65px a 40px */
+    }
+
+    .header-pagina p {
+        font-size: 16px;
+    }
+
+    nav ul {
+        gap: 10px; /* Espacio entre enlaces */
+        padding: 0 10px;
+        flex-wrap: wrap; /* Permite que los enlaces bajen de línea si no caben */
+    }
+    
+    nav ul li {
+        margin: 5px; /* Reducimos margen lateral */
+    }
+
+    /* 3. Carrusel (Slider) */
+    .slider {
+        height: 400px; /* Reducimos altura en móvil */
+    }
+
+    .slide .content {
+        width: 80%; /* Ocupa casi todo el ancho */
+        left: 50%; /* Centrado */
+        transform: translateX(-50%); /* Ajuste para centrado exacto */
+        bottom: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    /* Ajuste de la animación del slider para móvil */
+    .slide.current .content {
+        transform: translateX(-50%); /* Mantenemos el centrado sin desplazar desde -600px */
+        left: 50%;
+    }
+
+    /* Ocultamos botones de slider si molestan o los hacemos más pequeños */
+    .buttons button {
+        padding: 8px 10px;
+    }
+
+    /* 4. Sección de Cartas (Menú) */
+    .contenedor-carta {
+        flex-direction: column; /* Apila las cartas verticalmente */
+        align-items: center;
+    }
+
+    .elemento-carta1, .elemento-carta2, .elemento-carta3 {
+        width: 100%; /* Ocupan todo el ancho disponible */
+        max-width: 350px; /* Pero no más de 350px para que no se vean gigantes */
+        margin-bottom: 20px;
+    }
+
+    /* 5. Texto Informativo y Layout */
+    .info-carta {
+        width: 100%; /* Ya no es el 33%, ocupa todo */
+        display: block;
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    .elemento-texto1 {
+        font-size: 40px; /* Ajuste de tamaño */
+    }
+
+    /* 6. Contacto y Footer */
+    .contenedor-contacto {
+        padding: 30px 20px;
+    }
+
+    .elemento-contacto1 h2 {
+        font-size: 28px;
+    }
+
+    .elemento-contacto1 p {
+        font-size: 16px;
+    }
+    
+    .footer-contenido {
+        flex-direction: column; /* Elementos del footer uno debajo de otro */
+    }
+    
+    .footer-separador {
+        display: none; /* Ocultamos las barras separadoras en móvil */
+    }
+}
