@@ -182,7 +182,7 @@ h2, .total-monto {
 }
 
 /* Botones */
-.btn-primario, .btn-exito {
+.btn-primero, .btn-exito {
     background-color: #410805;
     font-family: 'Montserrat', sans-serif;
     color: white;
@@ -195,7 +195,7 @@ h2, .total-monto {
     transition: 0.3s;
 }
 
-.btn-primario:hover, .btn-exito:hover {
+.btn-primero:hover, .btn-exito:hover {
     background-color: #5a0b07;
     transform: scale(1.02);
 }

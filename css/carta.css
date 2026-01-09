@@ -452,10 +452,10 @@ footer { margin-top: auto; }
 
 /* Ajustes para cuando la pantalla sea menor*/
 @media (max-width: 1024px) {
-    .menu-grid {   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    .menu-grid {   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
                     gap: 24px; }
 }
-
+/* fr=fracción, para que el espacio se distribuya siempre en las mismas proporciones */
 @media (max-width: 768px) {
     .menu-grid { grid-template-columns: 1fr; padding: 0 20px; }
     .cesta-resumida { width: 90%; right: 5%; bottom: 20px; }
@@ -468,8 +468,7 @@ footer { margin-top: auto; }
 .tab-btn:focus, .btn-anadir:focus, .btn-anadir-especial:focus, .opcion-menu input[type="radio"]:focus {
     outline: 3px solid rgba(65,8,5,0.12);
     outline-offset: 3px;
-}
+} /*Para que sea accesible con tabulador y cuando está seleccionado */
 
 .nombre-item-cesta, .subdetalles h5 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.Plato, .tarjeta-menu-especial { -webkit-font-smoothing: antialiased; }
+/*para que no se rompa la caja o se monte el texto encima del precio */ 

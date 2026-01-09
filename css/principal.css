@@ -466,7 +466,7 @@ main {
     
     /* Ajuste de la animación del slider para móvil */
     .slide.current .content {
-        transform: translateX(-50%); /* Mantenemos el centrado sin desplazar desde -600px */
+        transform: translateX(-50%);
         left: 50%;
     }
 
@@ -477,19 +477,19 @@ main {
 
     /* 4. Sección de Cartas (Menú) */
     .contenedor-carta {
-        flex-direction: column; /* Apila las cartas verticalmente */
+        flex-direction: column; /* Cartas verticalmente */
         align-items: center;
     }
 
     .elemento-carta1, .elemento-carta2, .elemento-carta3 {
         width: 100%; /* Ocupan todo el ancho disponible */
-        max-width: 350px; /* Pero no más de 350px para que no se vean gigantes */
+        max-width: 350px;
         margin-bottom: 20px;
     }
 
     /* 5. Texto Informativo y Layout */
     .info-carta {
-        width: 100%; /* Ya no es el 33%, ocupa todo */
+        width: 100%;
         display: block;
         text-align: center;
         margin-left: 0;

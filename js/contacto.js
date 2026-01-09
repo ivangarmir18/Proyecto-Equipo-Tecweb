@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         "VOLVER" +
                     "</button>" +
                 "</div>";
-        };
+        }; //Usamos algunos estilos en línea concretos para no depender de CSS externo (más sencillo)
     }
 
     var caja = document.getElementById("caja-drop");

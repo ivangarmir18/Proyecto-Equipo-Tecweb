@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "<tr>" +
                     "<td colspan='5' style='text-align:center; padding:50px 20px;'>" +
                         "<p style='font-size: 20px; color: #111; margin-bottom: 25px;'>(cesta vacía)</p>" +
-                        "<a href='carta.html' class='btn-primario' style='text-decoration: none; display: inline-block;'>" +
+                        "<a href='carta.html' class='btn-primero' style='text-decoration: none; display: inline-block;'>" +
                             "VER CARTA" +
                         "</a>" +
                     "</td>" +
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "<p>Hola <strong>" + nombre + "</strong>, tu pedido ha sido registrado.</p>" +
                 "<p>Te esperamos el <strong>" + fecha + "</strong> a las <strong>" + hora + "</strong>.</p>" +
                 "<div style='margin-top:20px;'>" + 
-                    "<button class='btn-primario' onclick='location.reload()'>Volver</button>" + 
+                    "<button class='btn-primero' onclick='location.reload()'>Volver</button>" + 
                 "</div>";
             
             // 4. Limpiamos el carrito
