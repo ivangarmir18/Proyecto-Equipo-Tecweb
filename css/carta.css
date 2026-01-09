@@ -97,15 +97,6 @@ body {
     margin-bottom: 0;
 }
 
-/* ???????????*/
-.Plato.compact {
-    background-color: transparent;
-    width: 100%;
-    max-width: 300px;
-    height: 220px;
-    perspective: 1000px;
-}
-
 /* Contenido de la tarjeta que gira*/
 .Plato-interno {
     position: relative;
@@ -455,7 +446,6 @@ body {
     z-index: 1; /*para poner en la capa superior el fondo*/
 }
 
-/* ??????*/
 .paso-oculto { display: none !important; }
 
 footer { margin-top: auto; }
